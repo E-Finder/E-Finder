@@ -23,7 +23,9 @@
             android:id="@+id/imageButtonHome"
             android:layout_width="65dp"
             android:layout_height="65dp"
+            android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnInicio_desc"
+            android:translationX="-10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@mipmap/ic_home" />
@@ -33,6 +35,7 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_marginStart="16dp"
+            android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnCalendar_desc"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageButtonHome"
@@ -40,17 +43,38 @@
 
         <ImageButton
             android:id="@+id/imageButtonPlan"
-            android:layout_width="75dp"
+            android:layout_width="80dp"
             android:layout_height="73dp"
-            android:layout_marginBottom="-100dp"
-            android:background="@drawable/round"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnPlanning_desc"
-            android:src="@android:drawable/btn_star"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/toolbar"
-            app:layout_constraintHorizontal_bias="0.111"
+            android:src="@mipmap/ic_actividad"
+            android:translationX="3dp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonCalendar"
-            tools:src="@mipmap/ic_actividad" />
+            tools:layout_editor_absoluteY="5dp" />
+
+
+        <ImageButton
+            android:id="@+id/imageButtonShop"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:backgroundTint="#f2f2f2"
+            android:contentDescription="@string/btnShop_desc"
+            android:src="@mipmap/ic_shop"
+            android:translationX="15dp"
+            tools:layout_editor_absoluteX="261dp"
+            tools:layout_editor_absoluteY="658dp" />
+
+        <ImageButton
+            android:id="@+id/imageButtonProfile"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:backgroundTint="#f2f2f2"
+            android:contentDescription="@string/btnProfile_desc"
+            android:translationX="20dp"
+            app:srcCompat="@mipmap/ic_profile"
+            tools:layout_editor_absoluteX="334dp"
+            tools:layout_editor_absoluteY="658dp" />
 
 
     </androidx.appcompat.widget.Toolbar>
