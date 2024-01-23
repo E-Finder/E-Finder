@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">E-Finder</string>
-    <string name="btnInicio_desc">Inicio</string>
-    <string name="btnCalendar_desc">Agenda</string>
-    <string name="btnPlanning_desc">Nuevo planning</string>
-    <string name="btnShop_desc">Tienda</string>
-    <string name="btnProfile_desc">Perfil</string>
-</resources>
