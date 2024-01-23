@@ -1,0 +1,21 @@
+Fuente: Roboto
+	- Títulos de pestaña: 25 sp
+	- Botones: 20 sp
+	- TextBoxes: 20 sp
+	- Texto normal: 20 sp
+	- Subtextos: 15 sp
+ 
+Colores: 
+	- #348e91: Encabezados, botones.
+	- #F2F2F2: TextBox y barra de navegación.
+	- #000000: Fuentes sobre fondo.
+	- #FFFFFF: Fuentes sobre fondos no blancos, fondos, símbolos. 
+Blanco, ,
+ 
+ 
+Botones:
+	- Tamaños: 312 (50 libres por lado), 50 anchura
+	- Espaciado vertical: 5 ps.
+ 
+Imágenes: 
+	- Altura: 130 ps.
