@@ -6,7 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <ImageButton
+        android:id="@+id/imageRoundBack"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/round" />
+
     <androidx.appcompat.widget.Toolbar
+
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,17 +32,16 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
-
         <ImageButton
             android:id="@+id/imageButtonHome"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnInicio_desc"
-            android:translationX="-10dp"
+            android:translationX="-12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@mipmap/ic_home" />
+            app:srcCompat="@drawable/baseline_home_24" />
 
         <ImageButton
             android:id="@+id/imageButtonCalendar"
@@ -37,21 +50,10 @@
             android:layout_marginStart="16dp"
             android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnCalendar_desc"
+            android:translationX="-0.5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageButtonHome"
-            app:srcCompat="@mipmap/ic_calendar" />
-
-        <ImageButton
-            android:id="@+id/imageButtonPlan"
-            android:layout_width="80dp"
-            android:layout_height="73dp"
-            android:layout_marginStart="16dp"
-            android:backgroundTint="#f2f2f2"
-            android:contentDescription="@string/btnPlanning_desc"
-            android:src="@mipmap/ic_actividad"
-            android:translationX="3dp"
-            app:layout_constraintStart_toEndOf="@+id/imageButtonCalendar"
-            tools:layout_editor_absoluteY="5dp" />
+            app:srcCompat="@drawable/ic_calendar" />
 
 
         <ImageButton
@@ -60,8 +62,8 @@
             android:layout_height="65dp"
             android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnShop_desc"
-            android:src="@mipmap/ic_shop"
-            android:translationX="15dp"
+            android:src="@drawable/ic_cart"
+            android:translationX="107.5dp"
             tools:layout_editor_absoluteX="261dp"
             tools:layout_editor_absoluteY="658dp" />
 
@@ -71,13 +73,41 @@
             android:layout_height="65dp"
             android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnProfile_desc"
-            android:translationX="20dp"
-            app:srcCompat="@mipmap/ic_profile"
+            android:translationX="120dp"
+            app:srcCompat="@drawable/ic_profile"
             tools:layout_editor_absoluteX="334dp"
             tools:layout_editor_absoluteY="658dp" />
 
-
     </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageButton
+        android:id="@+id/imageButtonPlan"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/btnPlanning_desc"
+        android:src="@drawable/ic_activity"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="145dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="166dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
