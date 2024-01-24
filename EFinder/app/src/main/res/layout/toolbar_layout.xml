@@ -9,43 +9,47 @@
     <ImageButton
         android:id="@+id/imageRoundBack"
         android:layout_width="105dp"
-        android:layout_height="105dp"
+        android:layout_height="93dp"
         android:backgroundTint="#00FFFFFF"
+        android:contentDescription="@string/roundBack_desc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/round" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:background="#f2f2f2"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
+
         <ImageButton
             android:id="@+id/imageButtonHome"
             android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_height="55dp"
             android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnInicio_desc"
-            android:translationX="-12dp"
+            android:translationX="-16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/baseline_home_24" />
+
         <ImageButton
             android:id="@+id/imageButtonCalendar"
             android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_height="55dp"
             android:layout_marginStart="16dp"
             android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnCalendar_desc"
-            android:translationX="-0.5dp"
+            android:translationX="-7.5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageButtonHome"
             app:srcCompat="@drawable/ic_calendar" />
@@ -53,20 +57,21 @@
         <ImageButton
             android:id="@+id/imageButtonShop"
             android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_height="55dp"
             android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnShop_desc"
             android:src="@drawable/ic_cart"
             android:translationX="107.5dp"
             tools:layout_editor_absoluteX="261dp"
             tools:layout_editor_absoluteY="658dp" />
+
         <ImageButton
             android:id="@+id/imageButtonProfile"
             android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_height="55dp"
             android:backgroundTint="#f2f2f2"
             android:contentDescription="@string/btnProfile_desc"
-            android:translationX="120dp"
+            android:translationX="115dp"
             app:srcCompat="@drawable/ic_profile"
             tools:layout_editor_absoluteX="334dp"
             tools:layout_editor_absoluteY="658dp" />
@@ -74,8 +79,8 @@
 
     <ImageButton
         android:id="@+id/imageButtonPlan"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/btnPlanning_desc"
         android:src="@drawable/ic_activity"
@@ -83,18 +88,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98" />
+        app:layout_constraintVertical_bias="0.99" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="145dp" />
+        app:layout_constraintGuide_end="144dp" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="166dp" />
+        app:layout_constraintGuide_begin="7dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

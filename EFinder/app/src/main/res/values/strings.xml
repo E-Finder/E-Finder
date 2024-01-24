@@ -7,5 +7,6 @@
     <string name="btnPlanning_desc">Nuevo planning</string>
     <string name="btnShop_desc">Tienda</string>
     <string name="btnProfile_desc">Perfil</string>
+    <string name="roundBack_desc">RoundBack</string>
 
 </resources>
