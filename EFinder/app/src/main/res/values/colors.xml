@@ -6,4 +6,10 @@
     <color name="purple_700">#7B1FA2</color>
     <color name="teal_200">#80CBC4</color>
     <color name="teal_700">#00796B</color>
+    <color name="azul_1">#348E91</color>
+    <color name="azul_2">#1C5052</color>
+    <color name="azul_3">#213635</color>
+    <color name="azul_logo">#005775</color>
+    <color name="azul_logo_vanish">#B4005775</color>
+    B4005775
 </resources>
