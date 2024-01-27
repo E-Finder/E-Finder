@@ -8,5 +8,7 @@
     <string name="btnShop_desc">Tienda</string>
     <string name="btnProfile_desc">Perfil</string>
     <string name="roundBack_desc">RoundBack</string>
+    <string name="btnBack_desc">Volver atrás</string>
+    <string name="mapView_desc">Mapa</string>
 
 </resources>
