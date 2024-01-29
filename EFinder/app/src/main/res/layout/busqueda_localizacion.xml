@@ -8,17 +8,34 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/toolbar_layout" />
+        layout="@layout/toolbar_layout"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="26dp" />
 
     <View
-        android:id="@+id/colorStrip"
+        android:id="@+id/colorStripTop"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="85dp"
         android:background="#348e91"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <View
+        android:id="@+id/colorStripDestacados"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#348e91"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65999997" />
 
     <TextView
         android:id="@+id/textView4"
@@ -28,8 +45,9 @@
         android:text="Búsqueda por localización"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/colorStrip"
-        app:layout_constraintEnd_toEndOf="@+id/colorStrip"
+        app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
+        app:layout_constraintEnd_toEndOf="@+id/colorStripTop"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/include" />
 
@@ -38,24 +56,136 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:backgroundTint="#348E91"
+        android:contentDescription="@string/btnBack_desc"
         app:icon="@drawable/baseline_arrow_back_ios_24"
-        app:layout_constraintBottom_toBottomOf="@+id/colorStrip"
+        app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/colorStrip"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/colorStripTop"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="278dp"
+        android:layout_height="285dp"
         android:layout_marginBottom="284dp"
+        android:contentDescription="@string/mapView_desc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colorStrip" />
+        app:layout_constraintTop_toBottomOf="@+id/colorStripTop"
+        app:layout_constraintVertical_bias="0.53" />
 
-    <!-- TextView para mover -->
+    <SearchView
+        android:id="@+id/serchViewLocalizacion"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_searchview_background"
+        app:layout_constraintBottom_toTopOf="@+id/mapView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorStripTop"
+        app:layout_constraintVertical_bias="0.45999998" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="Destinos frecuentes"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/colorStripDestacados"
+        app:layout_constraintEnd_toEndOf="@+id/colorStripDestacados"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/colorStripDestacados" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Primera fila con tres botones -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#F2F2F2"
+                android:fontFamily="@font/roboto"
+                android:text="Las Rozas, Madrid"
+                android:textColor="#000000" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#F2F2F2"
+                android:fontFamily="@font/roboto"
+                android:text="Almería"
+                android:textColor="#000000" />
+
+
+        </TableRow>
+
+        <!-- Segunda fila con tres botones -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#F2F2F2"
+                android:fontFamily="@font/roboto"
+                android:text="Nalda, La Rioja"
+                android:textColor="#000000" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#F2F2F2"
+                android:fontFamily="@font/roboto"
+                android:text="Nájera (xD)"
+                android:textColor="#000000" />
+
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#F2F2F2"
+                android:fontFamily="@font/roboto"
+                android:text="Bilbao"
+                android:textColor="#000000" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#F2F2F2"
+                android:fontFamily="@font/roboto"
+                android:text="Barcelona"
+                android:textColor="#000000" />
+
+
+        </TableRow>
+    </TableLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
