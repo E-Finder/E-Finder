@@ -10,5 +10,10 @@
     <string name="roundBack_desc">RoundBack</string>
     <string name="btnBack_desc">Volver atrás</string>
     <string name="mapView_desc">Mapa</string>
+    <string name="scrollView_desc">ScrollView</string>
+    <string-array name="spinner_options">
+        <item>Búsqueda por localización</item>
+        <item>Búsqueda por actividad</item>
+    </string-array>
 
 </resources>
