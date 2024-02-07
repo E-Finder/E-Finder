@@ -31,6 +31,11 @@
             android:name=".BusquedaLocalizacionActivity">
         </activity>
 
+        <activity
+            android:name=".ResultadoLocalizacionActivity">
+        </activity>
+
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

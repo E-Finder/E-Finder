@@ -77,8 +77,8 @@
         app:layout_constraintTop_toBottomOf="@+id/colorStripTop"
         app:layout_constraintVertical_bias="0.53" />
 
-    <SearchView
-        android:id="@+id/serchViewLocalizacion"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchViewLocalizacion"
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:background="@drawable/rounded_searchview_background"
