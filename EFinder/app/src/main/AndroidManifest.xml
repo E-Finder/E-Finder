@@ -26,6 +26,9 @@
         <activity
             android:name=".ToolbarActivity">
         </activity>
+        <activity
+            android:name=".BusquedaActividadActivity">
+        </activity>
 
         <activity
             android:name=".BusquedaLocalizacionActivity">
