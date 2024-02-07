@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <ScrollView
         android:id="@+id/SV"
         android:layout_width="412dp"
@@ -22,40 +23,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/searchBarLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#348e91"
-                android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:backgroundTint="#348E91"
-                    android:contentDescription="@string/btnBack_desc"
-                    app:icon="@drawable/baseline_arrow_back_ios_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
-                    app:layout_constraintEnd_toStartOf="@+id/textView4"
-                    app:layout_constraintHorizontal_bias="0.4"
-                    app:layout_constraintStart_toStartOf="@+id/colorStripTop"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <SearchView
+                android:id="@+id/serchViewLocalizacion"
+                android:layout_width="380dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/rounded_searchview_background">
 
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto"
-                    android:text="Búsqueda por actividad"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
-            </LinearLayout>
-
-
-
+            </SearchView>
 
             <ImageButton
                 android:id="@+id/imageButton1"
@@ -202,24 +179,49 @@
         </LinearLayout>
     </ScrollView>
 
+    <View
+        android:id="@+id/colorStripTop"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="#348e91"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#348E91"
+        android:contentDescription="@string/btnBack_desc"
+        app:icon="@drawable/baseline_arrow_back_ios_24"
+        app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/colorStripTop"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="Búsqueda por localización"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
+        app:layout_constraintEnd_toEndOf="@+id/colorStripTop"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/colorStripTop" />
+
     <include
         layout="@layout/toolbar_layout"
         android:elevation="50dp"
         tools:layout_editor_absoluteX="16dp" />
-
-    <SearchView
-        android:id="@+id/serchViewLocalizacion"
-        android:layout_width="375dp"
-        android:layout_height="47dp"
-        android:background="@drawable/rounded_searchview_background"
-        app:layout_constraintBottom_toTopOf="@+id/mapView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colorStripTop"
-        app:layout_constraintVertical_bias="0.45999998">
-
-    </SearchView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
