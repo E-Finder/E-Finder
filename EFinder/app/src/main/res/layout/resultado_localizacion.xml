@@ -5,14 +5,56 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView
+    <View
+        android:id="@+id/colorStripTop"
         android:layout_width="match_parent"
-        android:layout_height="680dp"
-        android:contentDescription="@string/scrollView_desc"
+        android:layout_height="85dp"
+        android:background="#348e91"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="Resultados por localización"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
+        app:layout_constraintEnd_toEndOf="@+id/colorStripTop"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="@string/btnBack_desc"
+        app:icon="@drawable/baseline_arrow_back_ios_24"
+        app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTitle"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/colorStripTop"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/toolbar_layout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="391dp"
+        android:layout_height="764dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/colorStripTop">
 
         <LinearLayout
             android:id="@+id/linearLayoutResultados"
@@ -82,52 +124,7 @@
 
 
         </LinearLayout>
-
-
-    </ScrollView>
-
-    <View
-        android:id="@+id/colorStripTop"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:background="#348e91"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-        android:text="Resultados por localización"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
-        app:layout_constraintEnd_toEndOf="@+id/colorStripTop"
-        app:layout_constraintHorizontal_bias="0.53"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="@string/btnBack_desc"
-        app:icon="@drawable/baseline_arrow_back_ios_24"
-        app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTitle"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="@+id/colorStripTop"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <include
-        android:id="@+id/include2"
-        layout="@layout/toolbar_layout" />
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
