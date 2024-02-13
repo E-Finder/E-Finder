@@ -1,66 +1,28 @@
 package com.example.efinder;
 
-import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Spinner;
-import android.widget.Toolbar;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
 
 public class ToolbarActivity extends AppCompatActivity {
 
-    private ImageButton imageButtonHome;
-    private ImageButton imageButtonCalendar;
-    private ImageButton imageButtonShop;
-    private ImageButton imageButtonProfile;
+    protected ImageButton imageButtonHome;
+    protected ImageButton imageButtonCalendar;
+    protected ImageButton imageButtonShop;
+    protected ImageButton imageButtonProfile;
+    protected ImageButton imageButtonPlan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.toolbar_layout);
+        setContentView(R.layout.toolbar_layout);
 
-
-        imageButtonHome = findViewById(R.id.imageButtonHome);
-        imageButtonCalendar = findViewById(R.id.imageButtonCalendar);
-        imageButtonShop = findViewById(R.id.imageButtonShop);
-        imageButtonProfile = findViewById(R.id.imageButtonProfile);
-
-        imageButtonHome.setOnClickListener(v -> {
-            // Iniciar la actividad correspondiente al botón Home
-            startActivity(new Intent(ToolbarActivity.this, MainActivity2.class));
-            System.out.println("aoinaga");
-        });
-        /**
-        imageButtonCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Iniciar la actividad correspondiente al botón Calendar
-                startActivity(new Intent(ToolbarActivity.this, CalendarActivity.class));
-            }
-        });
-
-        imageButtonShop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Iniciar la actividad correspondiente al botón Shop
-                startActivity(new Intent(ToolbarActivity.this, ShopActivity.class));
-            }
-        });
-
-        imageButtonProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Iniciar la actividad correspondiente al botón Profile
-                startActivity(new Intent(ToolbarActivity.this, ProfileActivity.class));
-            }
-        });
-
-        */
+        setToolbarOnClicks();
     }
 
 
@@ -81,5 +43,52 @@ public class ToolbarActivity extends AppCompatActivity {
                     }
                 })
                 .show();
+    }
+
+    public void setToolbarOnClicks(){
+        imageButtonHome = findViewById(R.id.imageButtonHome);
+        imageButtonCalendar=findViewById(R.id.imageButtonCalendar);
+        imageButtonShop = findViewById(R.id.imageButtonShop);
+        imageButtonProfile = findViewById(R.id.imageButtonProfile);
+        imageButtonPlan=findViewById(R.id.imageButtonPlan);
+
+
+         imageButtonHome.setOnClickListener(v -> {
+         // Iniciar la actividad correspondiente al botón Home
+         startActivity(new Intent(this, HomeActivity.class));
+         System.out.println("aoinaga");
+         });
+
+         imageButtonCalendar.setOnClickListener(v -> {
+         // Iniciar la actividad correspondiente al botón Calendar
+         startActivity(new Intent(this, AgendaActivity.class));
+         });
+
+        imageButtonPlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarDialogo();
+            }
+        });/**
+
+         imageButtonShop.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+        // Iniciar la actividad correspondiente al botón Shop
+        startActivity(new Intent(this, ShopActivity.class));
+        }
+        });
+
+         imageButtonProfile.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+        // Iniciar la actividad correspondiente al botón Profile
+        startActivity(new Intent(this, ProfileActivity.class));
+        }
+        });*/
+
+
+
+
     }
 }

@@ -2,13 +2,16 @@ package com.example.efinder;
 
 import android.os.Bundle;
 
-public class BusquedaActividadActivity extends ToolbarActivity {
+public class HomeActivity extends ToolbarActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.busqueda_actividad);
+        setContentView(R.layout.home_activity);
 
         setToolbarOnClicks();
+
+
 
     }
 }

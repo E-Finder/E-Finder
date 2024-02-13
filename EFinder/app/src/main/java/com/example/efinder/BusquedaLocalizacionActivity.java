@@ -2,12 +2,7 @@ package com.example.efinder;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
 
-import androidx.appcompat.widget.SearchView;
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
 public class BusquedaLocalizacionActivity extends ToolbarActivity {
@@ -19,13 +14,8 @@ public class BusquedaLocalizacionActivity extends ToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.busqueda_localizacion);
 
-        ImageButton imageButtonPlan = findViewById(R.id.imageButtonPlan);
-        imageButtonPlan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mostrarDialogo();
-            }
-        });
+        setToolbarOnClicks();
+
 
         searchView = findViewById(R.id.searchViewLocalizacion);
 
