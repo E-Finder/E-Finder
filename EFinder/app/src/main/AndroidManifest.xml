@@ -12,9 +12,6 @@
         android:theme="@style/Theme.EFinder"
         >
         <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -24,7 +21,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ToolbarActivity">
+            android:name=".ToolbarActivity"
+            android:exported="true"
+            android:enabled="true">
+        </activity>
+        <activity
+            android:name=".HomeActivity">
+        </activity>
+        <activity
+            android:name=".AgendaActivity">
+        </activity>
+        <activity
+            android:name=".BusquedaActividadActivity">
         </activity>
 
         <activity

@@ -2,9 +2,7 @@ package com.example.efinder;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.widget.SearchView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
 public class BusquedaLocalizacionActivity extends ToolbarActivity {
@@ -15,6 +13,9 @@ public class BusquedaLocalizacionActivity extends ToolbarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.busqueda_localizacion);
+
+        setToolbarOnClicks();
+
 
         searchView = findViewById(R.id.searchViewLocalizacion);
 

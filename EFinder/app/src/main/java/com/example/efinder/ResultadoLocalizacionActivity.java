@@ -2,18 +2,9 @@ package com.example.efinder;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.List;
-
-public class ResultadoLocalizacionActivity extends AppCompatActivity {
+public class ResultadoLocalizacionActivity extends ToolbarActivity {
 
     private LinearLayout linearLayoutResultados;
 
@@ -21,6 +12,9 @@ public class ResultadoLocalizacionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resultado_localizacion);
+
+        setToolbarOnClicks();
+
 /**
         linearLayoutResultados = findViewById(R.id.linearLayoutResultados);
 
