@@ -3,6 +3,8 @@ package com.example.efinder;
 import android.os.Bundle;
 import DAO.EventoDAO;
 import Model.Evento;
+
+import android.util.Log;
 import android.widget.LinearLayout;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +21,7 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
     private RecyclerView recyclerView;
     private EventoAdapter adapter;
     private List<Evento> eventos;
+    private EventoDAO eventoDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +30,27 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
 
         setToolbarOnClicks();
 
-        eventos = obtenerEventos();
+        // Inicializar la lista de eventos
+        eventos = new ArrayList<>();
 
+        // Configurar el RecyclerView y el adaptador
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new EventoAdapter(eventos);
+        adapter = new EventoAdapter(eventos); // Pasar la lista vacía al adaptador por ahora
         recyclerView.setAdapter(adapter);
 
-        System.out.println(eventos.toString());
+        // Inicializar el DAO de Evento
+        eventoDAO = new EventoDAO(this);
+
+        // Recuperar eventos de la base de datos
+        eventos = obtenerEventos();
+
+        // Actualizar el adaptador con la lista de eventos recuperados
+        adapter.setEventos(eventos);
+        adapter.notifyDataSetChanged();
     }
 
     private List<Evento> obtenerEventos() {
-        EventoDAO eventoDAO = new EventoDAO(getApplicationContext()); // Obtén una instancia de EventoDAO
-        return eventoDAO.listarEventos(); // Obtén todos los eventos de la base de datos y devuélvelos
+        return eventoDAO.listarEventos();
     }
-
 }

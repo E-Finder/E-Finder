@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static String DB_PATH = "";
+    private static String DB_PATH = "H:\\2DAM_Santi\\PMM\\E-FinderDEFINITIVO\\E-Finder\\EFinder\\app\\src\\main\\assets";
 
     private static String DB_NAME = "EFinder.db";
 
