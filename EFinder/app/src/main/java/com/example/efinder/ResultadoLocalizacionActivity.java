@@ -1,12 +1,24 @@
 package com.example.efinder;
 
 import android.os.Bundle;
-
+import DAO.EventoDAO;
+import Model.Evento;
 import android.widget.LinearLayout;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Adapter.EventoAdapter;
+import Model.Evento;
 
 public class ResultadoLocalizacionActivity extends ToolbarActivity {
 
-    private LinearLayout linearLayoutResultados;
+    private RecyclerView recyclerView;
+    private EventoAdapter adapter;
+    private List<Evento> eventos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,47 +27,19 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
 
         setToolbarOnClicks();
 
-/**
-        linearLayoutResultados = findViewById(R.id.linearLayoutResultados);
+        eventos = obtenerEventos();
 
-        // Supongamos que tienes una lista de objetos Resultado
-        List<Resultado> resultados = obtenerResultadosDesdeBaseDeDatos();
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new EventoAdapter(eventos);
+        recyclerView.setAdapter(adapter);
 
-        // Iterar sobre la lista de resultados y crear elementos visuales dinámicamente
-        for (Resultado resultado : resultados) {
-            // Crear ImageButton
-            ImageButton imageButton = new ImageButton(this);
-            imageButton.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            ));
-            imageButton.setImageResource(resultado.getImagenResource());
-            linearLayoutResultados.addView(imageButton);
-
-            // Crear TextView
-            TextView textView = new TextView(this);
-            textView.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            ));
-            textView.setText(resultado.getTexto());
-            linearLayoutResultados.addView(textView);
-        }
+        System.out.println(eventos.toString());
     }
 
-    // Método ficticio para simular la obtención de resultados desde la base de datos
-    private List<Resultado> obtenerResultadosDesdeBaseDeDatos() {
-        List<Resultado> resultados = new ArrayList<>();
+    private List<Evento> obtenerEventos() {
+        EventoDAO eventoDAO = new EventoDAO(getApplicationContext()); // Obtén una instancia de EventoDAO
+        return eventoDAO.listarEventos(); // Obtén todos los eventos de la base de datos y devuélvelos
+    }
 
-        // Simulando la obtención de resultados desde la base de datos
-        // Agregamos algunos resultados ficticios para el ejemplo
-        resultados.add(new Resultado("La Rioja", R.drawable.image1));
-        resultados.add(new Resultado("Barcelona", R.drawable.image2));
-        resultados.add(new Resultado("Madrid", R.drawable.image3));
-        resultados.add(new Resultado("Sevilla", R.drawable.image4));
-        resultados.add(new Resultado("Valencia", R.drawable.image5));
-
-        return resultados;
-    }*/
-}
 }

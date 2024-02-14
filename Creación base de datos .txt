@@ -1,0 +1,59 @@
+-- Ejecutar esto en consola
+sqlite3 EFinder.db
+
+-- Dentro de la sesión que se abre ejecutar los create tables.
+-- Tabla usuario
+CREATE TABLE usuario (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    alias TEXT NOT NULL,
+    correo TEXT NOT NULL UNIQUE,
+    contrasena TEXT NOT NULL,
+    telefono TEXT, -- Se mantiene VARCHAR como TEXT en SQLite para soportar números internacionales y formatos especiales
+    ubicacion TEXT,
+    imagen TEXT,
+    vip INTEGER NOT NULL DEFAULT 0 -- SQLite no tiene BOOLEAN, se usa INTEGER 0 (false) y 1 (true)
+);
+
+-- Tabla evento
+CREATE TABLE evento (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT,
+    descripcion TEXT,
+    tipo TEXT,
+    horario TEXT,
+    ubicacion TEXT,
+    imagen TEXT,
+    valoracion REAL -- DECIMAL se convierte en REAL en SQLite
+);
+
+-- Tabla articulo
+CREATE TABLE articulo (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT,
+    descripcion TEXT,
+    tipo TEXT,
+    precio REAL, -- DECIMAL se convierte en REAL en SQLite
+    imagen TEXT
+);
+
+-- Tabla usuario_evento
+CREATE TABLE usuario_evento (
+    id_usuario INTEGER NOT NULL,
+    id_evento INTEGER NOT NULL,
+    PRIMARY KEY(id_evento, id_usuario),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id),
+    FOREIGN KEY (id_evento) REFERENCES evento(id)
+);
+
+-- Tabla usuario_articulo
+CREATE TABLE usuario_articulo (
+    id_usuario INTEGER NOT NULL,
+    id_articulo INTEGER NOT NULL,
+    PRIMARY KEY(id_articulo, id_usuario),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id),
+    FOREIGN KEY (id_articulo) REFERENCES articulo(id)
+);
+
+-- Y esto para cerrar sesión.
+.quit
