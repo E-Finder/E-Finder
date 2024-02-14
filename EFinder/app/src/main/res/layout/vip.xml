@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/colorStripTop"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="#348e91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#348E91"
+        app:icon="@drawable/baseline_arrow_back_ios_24"
+        android:contentDescription="@string/btnBack_desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="45dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/roboto"
+        android:text="VIP"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/colorStripTop" />
+
+    <include
+        layout="@layout/toolbar_layout"
+        android:elevation="50dp"
+         />
+
+
+    <HorizontalScrollView
+        android:layout_width="409dp"
+        android:layout_height="220dp"
+
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="420dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/imageContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="398dp"
+                android:layout_height="202dp"
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="Descripción de la imagen 1"
+                android:src="@drawable/_73682688_234180520_1706x960" />
+
+            <!-- Botón de imagen 2 -->
+            <ImageButton
+                android:layout_width="406dp"
+                android:layout_height="198dp"
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="Descripción de la imagen 2"
+                android:src="@drawable/concatedral_redonda_logrono" />
+
+            <ImageButton
+                android:layout_width="408dp"
+                android:layout_height="191dp"
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="Descripción de la imagen 3"
+                android:src="@drawable/rutas" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="116dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="4dp"
+        android:text="Actividades VIP"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorStripTop" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
