@@ -55,4 +55,11 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
             descripcionTextView = itemView.findViewById(R.id.textViewDescripcion);
         }
     }
+
+    public void setEventos(List<Evento> eventos) {
+        this.eventos = eventos;
+    }
+
+
+
 }
