@@ -127,4 +127,6 @@ public class ArticuloDAO {
         db.close();
         return listaArticulos;
     }
+
+
 }

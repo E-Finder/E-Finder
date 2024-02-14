@@ -1,6 +1,8 @@
 package DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import DB.DatabaseHelper;
@@ -65,5 +67,35 @@ public class UsuarioDAO {
         long id = db.insert("usuario", null, values);
         db.close();
         return id != -1;
+    }
+
+    public boolean esUsuarioVIP(String nombreUsuario) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        boolean esVIP = false;
+
+        String[] columns = {"vip"};
+        String selection = "nombre = ?";
+        String[] selectionArgs = {nombreUsuario};
+
+        Cursor cursor = db.query("usuario", columns, selection, selectionArgs, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            @SuppressLint("Range") int vip = cursor.getInt(cursor.getColumnIndex("vip"));
+            esVIP = (vip == 1);
+            cursor.close();
+        }
+
+        return esVIP;
+    }
+
+    public void cambiarEstadoVIP(String nombreUsuario, boolean nuevoEstado) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("vip", nuevoEstado ? 1 : 0); // 1 para VIP, 0 para no VIP
+
+        String selection = "nombre = ?";
+        String[] selectionArgs = {nombreUsuario};
+
+        db.update("usuario", values, selection, selectionArgs);
     }
 }

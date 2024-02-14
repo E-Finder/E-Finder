@@ -33,6 +33,8 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new EventoAdapter(eventos);
         recyclerView.setAdapter(adapter);
+
+        System.out.println(eventos.toString());
     }
 
     private List<Evento> obtenerEventos() {

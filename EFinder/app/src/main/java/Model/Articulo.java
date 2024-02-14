@@ -60,4 +60,16 @@ public class Articulo {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+
+    @Override
+    public String toString() {
+        return "Articulo{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", precio=" + precio +
+                ", imagen='" + imagen + '\'' +
+                '}';
+    }
 }
