@@ -6,6 +6,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +64,13 @@ public class EventoDAO {
     @SuppressLint("Range")
     public List<Evento> listarEventos() {
         List<Evento> listaEventos = new ArrayList<>();
+        try {
+
+            dbHelper.openDataBase();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM evento", null);
 

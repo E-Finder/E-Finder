@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -27,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         this.myContext = context;
 
-        DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
+        DB_PATH = "/data/data/"+context.getApplicationInfo().dataDir + "/databases/";
 
     }
 
@@ -67,7 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         } catch(SQLiteException e) {
 
-            // La base de datos no existe todavía.
+            System.out.println("La base de datos no existe todavía.");
 
         }
 
@@ -76,12 +77,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             checkDB.close();
 
         }
-
+        Log.e("checkDatabase",String.valueOf(checkDB!=null));
         return checkDB != null;
+
 
     }
 
-    private void copyDataBase() throws IOException {
+    public void copyDataBase() throws IOException {
 
         InputStream myInput = myContext.getAssets().open(DB_NAME);
 
@@ -92,6 +94,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         byte[] buffer = new byte[1024];
 
         int length;
+
+        Log.e("copyDataBase","Base de datos copiada");
 
         while ((length = myInput.read(buffer)) > 0) {
 
@@ -109,9 +113,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void openDataBase() throws SQLException {
 
-        String myPath = DB_PATH + DB_NAME;
-
-        myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+        if(!checkDataBase()){
+            try {
+                copyDataBase();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else{
+            try {
+                createDataBase();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
     }
 
