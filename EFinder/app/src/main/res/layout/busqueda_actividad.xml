@@ -24,15 +24,15 @@
             android:orientation="vertical">
 
 
-            <SearchView
+            <androidx.appcompat.widget.SearchView
                 android:id="@+id/serchViewLocalizacion"
                 android:layout_width="380dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="50dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="25dp"
                 android:background="@drawable/rounded_searchview_background">
 
-            </SearchView>
+            </androidx.appcompat.widget.SearchView>
 
             <ImageButton
                 android:id="@+id/imageButton1"
@@ -42,9 +42,10 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:contentDescription="Descripción de la imagen o función del botón"
+                android:contentDescription="@string/descripci_n_de_la_imagen_o_funci_n_del_bot_n"
                 android:scaleType="centerCrop"
-                android:src="@drawable/_73682688_234180520_1706x960" />
+                android:src="@drawable/_73682688_234180520_1706x960"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -55,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="Gastronomía"
+                    android:text="@string/gastronomia"
                     android:textColor="#000000"
                     android:textSize="25sp" />
             </RelativeLayout>
@@ -70,7 +71,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:contentDescription="Descripción de la imagen o función del botón"
+                android:contentDescription="@string/descripci_n_de_la_imagen_o_funcion_del_bot_n"
                 android:scaleType="centerCrop"
                 android:src="@drawable/istockphoto_1312429048_612x612" />
 
@@ -84,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/roboto"
-                    android:text="Fiesta"
+                    android:text="@string/fiesta"
                     android:textColor="#000000"
                     android:textSize="25sp" />
             </RelativeLayout>
@@ -97,7 +98,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:contentDescription="Descripción de la imagen o función del botón"
+                android:contentDescription="@string/descripci_n_de_la_imagen_o_funci_n_del_boton"
                 android:scaleType="centerCrop"
                 android:src="@drawable/rutas" />
 
@@ -111,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/roboto"
-                    android:text="Rutas"
+                    android:text="@string/rutas"
                     android:textColor="#000000"
                     android:textSize="25sp" />
             </RelativeLayout>
@@ -126,7 +127,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:contentDescription="Descripción de la imagen o función del botón"
+                android:contentDescription="@string/descripci_n_de_la_imagen_o_funcion_del_boton"
                 android:scaleType="centerCrop"
                 android:src="@drawable/concatedral_redonda_logrono" />
 
@@ -140,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/roboto"
-                    android:text="Turismo"
+                    android:text="@string/turismo"
                     android:textColor="#000000"
                     android:textSize="25sp" />
             </RelativeLayout>
@@ -154,7 +155,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:contentDescription="Descripción de la imagen o función del botón"
+                android:contentDescription="@string/descripci_n_de_la_imagen_o_funcion_del_boton"
                 android:scaleType="centerCrop"
                 android:src="@drawable/zoo" />
 
@@ -169,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/roboto"
-                    android:text="Zoo"
+                    android:text="@string/zoo"
                     android:textColor="#000000"
                     android:textSize="25sp"
                     android:layout_marginBottom="50dp"/>
@@ -209,7 +210,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
-        android:text="Búsqueda por actividad"
+        android:text="@string/b_squeda_por_actividad"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"

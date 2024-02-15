@@ -2,20 +2,10 @@ package com.example.efinder;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-
-import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
 
 public class ToolbarActivity extends AppCompatActivity {
-
-    protected ImageButton imageButtonHome;
-    protected ImageButton imageButtonCalendar;
-    protected ImageButton imageButtonShop;
-    protected ImageButton imageButtonProfile;
-    protected ImageButton imageButtonPlan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,73 +15,25 @@ public class ToolbarActivity extends AppCompatActivity {
         setToolbarOnClicks();
     }
 
-
-
     public void mostrarDialogo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Selecciona una opción")
                 .setItems(new CharSequence[]{"Búsqueda por localización", "Búsqueda por actividad"}, (dialog, which) -> {
-                    switch (which) {
-                        case 0:
-                            Intent intentLocalization = new Intent(this, BusquedaLocalizacionActivity.class);
-                            startActivity(intentLocalization);
-                            break;
-                        case 1:
-                            Intent intentActivity = new Intent(this, BusquedaActividadActivity.class);
-                            startActivity(intentActivity);
-                            break;
+                    if (which == 0) {
+                        startActivity(new Intent(this, BusquedaLocalizacionActivity.class));
+                    } else if (which == 1) {
+                        startActivity(new Intent(this, BusquedaActividadActivity.class));
                     }
                 })
                 .show();
     }
 
-    public void setToolbarOnClicks(){
-        imageButtonHome = findViewById(R.id.imageButtonHome);
-        imageButtonCalendar=findViewById(R.id.imageButtonCalendar);
-        imageButtonShop = findViewById(R.id.imageButtonShop);
-        imageButtonProfile = findViewById(R.id.imageButtonProfile);
-        imageButtonPlan=findViewById(R.id.imageButtonPlan);
-
-
-         imageButtonHome.setOnClickListener(v -> {
-         // Iniciar la actividad correspondiente al botón Home
-         startActivity(new Intent(this, HomeActivity.class));
-         System.out.println("aoinaga");
-         });
-
-         imageButtonCalendar.setOnClickListener(v -> {
-         // Iniciar la actividad correspondiente al botón Calendar
-         startActivity(new Intent(this, AgendaActivity.class));
-         });
-
-        imageButtonPlan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mostrarDialogo();
-            }
-        });/**
-
-         imageButtonShop.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-        // Iniciar la actividad correspondiente al botón Shop
-        startActivity(new Intent(this, ShopActivity.class));
-        }
-        });
-
-        imageButtonProfile.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-        // Iniciar la actividad correspondiente al botón Profile
-        startActivity(new Intent(this, ProfileActivity.class));
-
-        }
-        });
-         */
-        imageButtonProfile.setOnClickListener(v -> {
-            // Iniciar la actividad correspondiente al botón Home
-            startActivity(new Intent(this, ProfileActivity.class));
-            //System.out.println("aoinaga");
-        });
+    public void setToolbarOnClicks() {
+        findViewById(R.id.imageButtonHome).setOnClickListener(v -> startActivity(new Intent(this, HomeActivity.class)));
+        findViewById(R.id.imageButtonCalendar).setOnClickListener(v -> startActivity(new Intent(this, AgendaActivity.class)));
+        findViewById(R.id.imageButtonShop).setOnClickListener(v -> startActivity(new Intent(this, ProfileActivity.class)));
+        findViewById(R.id.imageButtonProfile).setOnClickListener(v -> startActivity(new Intent(this, ProfileActivity.class)));
+        findViewById(R.id.imageButtonPlan).setOnClickListener(v -> mostrarDialogo());
     }
 }
+

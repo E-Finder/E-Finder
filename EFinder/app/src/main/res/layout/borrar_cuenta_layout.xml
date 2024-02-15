@@ -13,7 +13,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="47dp"
         android:fontFamily="@font/roboto"
-        android:text="No podrás volver a acceder a tu cuenta si la borras"
+        android:text="@string/no_podr_s_volver_a_acceder_a_tu_cuenta_si_la_borras"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/imageButtonEliminar"
@@ -21,7 +21,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.79"
+        tools:ignore="TextSizeCheck" />
 
     <Button
         android:id="@+id/buttonCancelar"
@@ -31,7 +32,7 @@
         android:layout_weight="1"
         android:backgroundTint="#348e91"
         android:fontFamily="@font/roboto"
-        android:text="Cancelar"
+        android:text="@string/cancelar"
         android:textColor="#F2F2F2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
-        android:text="Eliminar cuenta"
+        android:text="@string/eliminar_cuenta"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
@@ -92,7 +93,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/colorStripTop"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/borrar" />
+        app:srcCompat="@drawable/borrar"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textView7"
@@ -101,7 +103,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/roboto"
-        android:text="¿Estás seguro que quieres eliminar tu cuenta?"
+        android:text="@string/est_s_seguro_que_quieres_eliminar_tu_cuenta"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
@@ -118,14 +120,14 @@
         android:layout_weight="1"
         android:backgroundTint="#913434"
         android:fontFamily="@font/roboto"
-        android:text="Eliminar cuenta"
+        android:text="@string/eliminar_cuenta"
         android:textColor="#F2F2F2"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.382" />
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <include
         android:id="@+id/include2"

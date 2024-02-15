@@ -28,7 +28,6 @@
         android:backgroundTint="@color/white"
         android:contentDescription="@string/btnBack_desc"
         android:drawableTint="@color/black"
-        app:ico="@color/black"
         app:icon="@drawable/baseline_arrow_forward_ios_24"
         app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/editTextText3"
@@ -89,7 +88,6 @@
         android:backgroundTint="@color/white"
         android:contentDescription="@string/btnBack_desc"
         android:drawableTint="@color/black"
-        app:ico="@color/black"
         app:icon="@drawable/baseline_arrow_forward_ios_24"
         app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/editTextText2"
@@ -211,7 +209,7 @@
         android:layout_width="245dp"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="30dp"
         android:fontFamily="@font/roboto"
         android:text="Información de la cuenta"
@@ -219,10 +217,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/colorStripTop"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewAcercaDe"
@@ -246,7 +244,6 @@
         android:backgroundTint="@color/white"
         android:contentDescription="@string/btnBack_desc"
         android:drawableTint="@color/black"
-        app:ico="@color/black"
         app:icon="@drawable/baseline_arrow_forward_ios_24"
         app:iconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/editTextText1"
@@ -283,6 +280,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewAcercaDe" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSettings"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="#FFFFFF"
+        android:contentDescription="ajustes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorStripTop"
+        app:srcCompat="@drawable/baseline_app_settings_alt_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

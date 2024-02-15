@@ -40,7 +40,7 @@
     <EditText
         android:id="@+id/inputTextMensaje"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="189dp"
@@ -72,7 +72,7 @@
     <EditText
         android:id="@+id/inputTextAsunto"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="189dp"
@@ -102,7 +102,7 @@
     <EditText
         android:id="@+id/inputTextEmail"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="189dp"
@@ -120,7 +120,7 @@
     <EditText
         android:id="@+id/inputTextTelefono"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="189dp"
@@ -183,20 +183,15 @@
         android:layout_width="336dp"
         android:layout_height="35dp"
 
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="29dp"
-        android:layout_marginBottom="708dp"
         android:fontFamily="@font/roboto"
         android:text="¿Cómo podemos ayudarte?"
         android:textAlignment="center"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="pare" />
+        app:layout_constraintTop_toBottomOf="@+id/colorStripTop" />
 
     <View
         android:id="@+id/colorStripTop"
@@ -241,14 +236,14 @@
     <EditText
         android:id="@+id/inputTextNombre"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="189dp"
         android:layout_marginBottom="604dp"
         android:ems="10"
         android:inputType="text"
-        android:text=" "
+        android:text="Nombre"
         android:textColor="@color/material_dynamic_neutral60"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
