@@ -51,7 +51,7 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
         public EventoViewHolder(View itemView) {
             super(itemView);
             imageButton = itemView.findViewById(R.id.imageButton);
-            nombreTextView = itemView.findViewById(R.id.textViewNombre);
+            nombreTextView = itemView.findViewById(R.id.textViewAcercaDe);
             descripcionTextView = itemView.findViewById(R.id.textViewDescripcion);
         }
     }

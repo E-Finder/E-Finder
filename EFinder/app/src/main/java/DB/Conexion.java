@@ -13,7 +13,7 @@ public class Conexion extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    @Overridegit 
+    @Override
     public void onCreate(SQLiteDatabase db) {
         // Crear la tabla usuario
         String createTableQuery = "CREATE TABLE usuario (" +

@@ -1,24 +1,16 @@
 package com.example.efinder;
 
 import android.os.Bundle;
-import DAO.EventoDAO;
-import Model.Evento;
-import android.widget.LinearLayout;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import Adapter.EventoAdapter;
+import DAO.EventoDAO;
 import Model.Evento;
 
 public class ResultadoLocalizacionActivity extends ToolbarActivity {
-
-    private RecyclerView recyclerView;
-    private EventoAdapter adapter;
-    private List<Evento> eventos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +19,11 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
 
         setToolbarOnClicks();
 
-        eventos = obtenerEventos();
-
-        recyclerView = findViewById(R.id.recyclerView);
+        // Convertido a variable local ya que no se requiere acceso a estos campos fuera de onCreate
+        List<Evento> eventos = obtenerEventos();
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new EventoAdapter(eventos);
+        EventoAdapter adapter = new EventoAdapter(eventos);
         recyclerView.setAdapter(adapter);
 
         System.out.println(eventos.toString());
