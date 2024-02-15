@@ -43,6 +43,10 @@
             android:name=".ResultadoLocalizacionActivity">
         </activity>
 
+        <activity
+            android:name=".ProfileActivity">
+        </activity>
+
 
         <meta-data
             android:name="preloaded_fonts"

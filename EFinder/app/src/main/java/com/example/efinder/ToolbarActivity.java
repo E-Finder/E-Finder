@@ -79,16 +79,19 @@ public class ToolbarActivity extends AppCompatActivity {
         }
         });
 
-         imageButtonProfile.setOnClickListener(new View.OnClickListener() {
+        imageButtonProfile.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
         // Iniciar la actividad correspondiente al botón Profile
         startActivity(new Intent(this, ProfileActivity.class));
+
         }
-        });*/
-
-
-
-
+        });
+         */
+        imageButtonProfile.setOnClickListener(v -> {
+            // Iniciar la actividad correspondiente al botón Home
+            startActivity(new Intent(this, ProfileActivity.class));
+            //System.out.println("aoinaga");
+        });
     }
 }
