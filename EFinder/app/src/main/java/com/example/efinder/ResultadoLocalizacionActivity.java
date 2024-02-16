@@ -1,10 +1,14 @@
 package com.example.efinder;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList; // Asegúrate de importar ArrayList
 import java.util.List;
 
 import Adapter.EventoAdapter;
@@ -17,6 +21,7 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
     private EventoAdapter adapter;
     private List<Evento> eventos;
     private EventoDAO eventoDAO;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +30,44 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
 
         setToolbarOnClicks();
 
-        // Inicializar el DAO de Evento
+        recyclerView = findViewById(R.id.recyclerView);
+        searchView = findViewById(R.id.searchViewLocalizacion);
+
         eventoDAO = new EventoDAO(this);
 
-        // Recuperar eventos de la base de datos
-        eventos = obtenerEventos();
-
-        // Configurar el RecyclerView y el adaptador
-        recyclerView = findViewById(R.id.recyclerView);
+        eventos = obtenerEventos("");
+        adapter = new EventoAdapter(eventos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new EventoAdapter(eventos); // Pasar la lista de eventos recuperados al adaptador
         recyclerView.setAdapter(adapter);
+
+        // Configurar el listener para el SearchView
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // No es necesario implementar esta función
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                eventos = obtenerEventos(newText); // Filtrar la lista de eventos
+                adapter.setEventos(eventos);
+                adapter.notifyDataSetChanged();
+                if (eventos.isEmpty()) {
+                    Toast.makeText(ResultadoLocalizacionActivity.this, "No se encontraron resultados para la ubicación buscada", Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            }
+        });
     }
 
-    private List<Evento> obtenerEventos() {
-        // Asegúrate de que esta función retorna efectivamente una lista de eventos desde el DAO
-        return eventoDAO.listarEventos();
+    private List<Evento> obtenerEventos(String filtroUbicacion) {
+        // Obtener eventos filtrados por ubicación desde la base de datos
+        if (filtroUbicacion.isEmpty()) {
+            return eventoDAO.listarEventos(); // Obtener todos los eventos si el filtro está vacío
+        } else {
+            return eventoDAO.buscarEventosPorUbicacion(filtroUbicacion); // Obtener eventos filtrados por ubicación
+        }
     }
+
 }
