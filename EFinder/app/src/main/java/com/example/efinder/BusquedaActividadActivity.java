@@ -9,8 +9,5 @@ public class BusquedaActividadActivity extends ToolbarActivity {
         setContentView(R.layout.busqueda_actividad);
 
         setToolbarOnClicks();
-
     }
 }
-
-

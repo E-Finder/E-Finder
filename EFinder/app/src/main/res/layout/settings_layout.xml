@@ -9,152 +9,22 @@
         android:id="@+id/buttonCerrarSesion"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="641dp"
-        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/white"
         android:contentDescription="@string/btnBack_desc"
         android:drawableTint="@color/black"
         app:icon="@drawable/baseline_arrow_forward_ios_24"
         app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.76" />
 
     <EditText
         android:id="@+id/editTextText6"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginBottom="129dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="ada"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewCerrarSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="34dp"
-        android:text="Cerrar sesión"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
-
-    <Button
-        android:id="@+id/buttonNotificaciones"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="539dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/white"
-        android:contentDescription="@string/btnBack_desc"
-        android:drawableTint="@color/black"
-        app:icon="@drawable/baseline_arrow_forward_ios_24"
-        app:iconTint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextText5"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="232dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="ada"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewNotificaciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="202dp"
-        android:layout_marginBottom="1dp"
-        android:text="Notificaciones"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText5"
-        app:layout_constraintEnd_toStartOf="@+id/buttonNotificaciones"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
-
-    <Button
-        android:id="@+id/buttonVIP"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="436dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/white"
-        android:contentDescription="@string/btnBack_desc"
-        android:drawableTint="@color/black"
-        app:icon="@drawable/baseline_arrow_forward_ios_24"
-        app:iconTint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextText4"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="336dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="ada"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewVIP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="34dp"
-        android:text="VIP"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
-
-    <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="440dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="ada"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewContactanos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="34dp"
-        android:text="Contáctanos"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
-
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginBottom="536dp"
         android:ems="10"
         android:inputType="text"
         android:text="ada"
@@ -163,66 +33,218 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSiguenos"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.806" />
+
+    <TextView
+        android:id="@+id/textViewCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar sesión"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.746" />
+
+    <Button
+        android:id="@+id/buttonNotificaciones"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/btnBack_desc"
+        android:drawableTint="@color/black"
+        app:icon="@drawable/baseline_arrow_forward_ios_24"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.631" />
+
+    <EditText
+        android:id="@+id/editTextText5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="ada"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/colorStripTop"
+        app:layout_constraintVertical_bias="0.669" />
+
+    <TextView
+        android:id="@+id/textViewNotificaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notificaciones"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.624" />
+
+    <Button
+        android:id="@+id/buttonVIP"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/btnBack_desc"
+        android:drawableTint="@color/black"
+        app:icon="@drawable/baseline_arrow_forward_ios_24"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <EditText
+        android:id="@+id/editTextText4"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="ada"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/colorStripTop"
+        app:layout_constraintVertical_bias="0.542" />
+
+    <TextView
+        android:id="@+id/textViewVIP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIP"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="ada"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.423" />
+
+    <TextView
+        android:id="@+id/textViewContactanos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contáctanos"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.385" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="ada"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/colorStripTop"
+        app:layout_constraintVertical_bias="0.31" />
 
     <Button
         android:id="@+id/buttonContactanos"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="332dp"
-        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/white"
         android:contentDescription="@string/btnBack_desc"
         android:drawableTint="@color/black"
         app:icon="@drawable/baseline_arrow_forward_ios_24"
         app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.382" />
 
     <Button
         android:id="@+id/buttonSiguenos"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/white"
         android:contentDescription="@string/btnBack_desc"
         android:drawableTint="@color/black"
         app:icon="@drawable/baseline_arrow_forward_ios_24"
         app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.267" />
 
     <TextView
         android:id="@+id/textViewSiguenos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="33dp"
         android:text="Síguenos en nuestras redes
 "
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText1" />
+        app:layout_constraintTop_toTopOf="@+id/colorStripTop"
+        app:layout_constraintVertical_bias="0.274" />
 
     <Button
         android:id="@+id/buttonAcercaDe"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="18dp"
         android:backgroundTint="@color/white"
         android:contentDescription="@string/btnBack_desc"
         android:drawableTint="@color/black"
         app:icon="@drawable/baseline_arrow_forward_ios_24"
         app:iconTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextText1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintHorizontal_bias="0.959"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.91" />
+        app:layout_constraintVertical_bias="0.148" />
 
     <EditText
         android:id="@+id/editTextText1"
@@ -242,32 +264,28 @@
         android:id="@+id/textViewAcercaDeVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="328dp"
-        android:layout_marginBottom="673dp"
         android:text="Versión"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAcercaDe" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.181" />
 
     <TextView
         android:id="@+id/textViewAcercaDe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="300dp"
-        android:layout_marginBottom="708dp"
         android:text="Acerca de"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colorStripTop" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.143" />
 
     <View
         android:id="@+id/colorStripTop"

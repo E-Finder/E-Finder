@@ -29,17 +29,17 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
         eventoDAO = new EventoDAO(this);
 
         // Recuperar eventos de la base de datos
-        eventos = obtenerEventos();
+        eventos = eventoDAO.listarEventos(); // Asegúrate de que esta función retorna efectivamente una lista de eventos desde el DAO
+
+        // Si la lista está vacía, inicialízala para evitar NullPointerException
+        if (eventos == null) {
+            eventos = new ArrayList<>();
+        }
 
         // Configurar el RecyclerView y el adaptador
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new EventoAdapter(eventos); // Pasar la lista de eventos recuperados al adaptador
         recyclerView.setAdapter(adapter);
-    }
-
-    private List<Evento> obtenerEventos() {
-        // Asegúrate de que esta función retorna efectivamente una lista de eventos desde el DAO
-        return eventoDAO.listarEventos();
     }
 }

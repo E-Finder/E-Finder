@@ -1,29 +1,75 @@
 package com.example.efinder;
 
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.widget.ImageButton;
+import android.text.InputType;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class ProfileActivity extends ToolbarActivity {
+public class ProfileActivity extends AppCompatActivity {
+    Button buttonNombre, buttonNumero, buttonCorreo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile); // Asegúrate de que estás usando el layout correcto
+        setContentView(R.layout.activity_profile);
 
-        // Convertir imageButtonSettings en una variable local
-        ImageButton imageButtonSettings = findViewById(R.id.imageButtonSettings);
+        buttonNombre = findViewById(R.id.buttonNombre);
+        buttonNumero = findViewById(R.id.buttonNumero);
+        buttonCorreo = findViewById(R.id.buttonCorreo);
 
-        // Comprobar si el ImageButton es nulo
-        if (imageButtonSettings != null) {
-            imageButtonSettings.setOnClickListener(v -> {
-                // Iniciar la actividad de configuración
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
-            });
-        } else {
-            // Lanza un error o haz un log para depurar
-            throw new RuntimeException("ImageButtonSettings no se ha encontrado en el layout.");
-        }
+        buttonNombre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarDialogActualizar("Actualizar Nombre", "nombre");
+            }
+        });
+
+        buttonNumero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarDialogActualizar("Actualizar Teléfono", "telefono");
+            }
+        });
+
+        buttonCorreo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarDialogActualizar("Actualizar Correo", "correo");
+            }
+        });
+    }
+
+    private void mostrarDialogActualizar(String titulo, final String campoActualizar) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(titulo);
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        builder.setPositiveButton("Actualizar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String nuevoValor = input.getText().toString();
+                actualizarValorEnBaseDeDatos(campoActualizar, nuevoValor);
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
+    private void actualizarValorEnBaseDeDatos(String campo, String nuevoValor) {
+        // Implementa la lógica de actualización aquí.
+        // Esto podría ser una actualización de SQLite, una llamada a Firebase, o cualquier otro mecanismo de persistencia que estés utilizando.
     }
 }
