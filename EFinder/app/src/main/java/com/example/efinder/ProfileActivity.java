@@ -32,7 +32,7 @@ public class ProfileActivity extends ToolbarActivity {
         buttonNumero = findViewById(R.id.buttonNumero);
         buttonCorreo = findViewById(R.id.buttonCorreo);
         buttonSettings = findViewById(R.id.imageButtonSettings);
-        nombreUsuarioTextView = findViewById(R.id.nombreUsuarioTextView); // Inicializa tu TextView aquí
+        nombreUsuarioTextView = findViewById(R.id.textViewNombreText); // Inicializa tu TextView aquí
 
         buttonNombre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +63,6 @@ public class ProfileActivity extends ToolbarActivity {
             }
         });
     }
-
     private void mostrarDialogActualizar(String titulo, final String campoActualizar) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(titulo);
@@ -76,7 +75,7 @@ public class ProfileActivity extends ToolbarActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String nuevoValor = input.getText().toString();
-                actualizarValorEnBaseDeDatos(campoActualizar, nuevoValor);
+                //actualizarValorEnBaseDeDatos(campoActualizar, nuevoValor);
             }
         });
         builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -89,6 +88,7 @@ public class ProfileActivity extends ToolbarActivity {
         builder.show();
     }
 
+/**
     private void actualizarValorEnBaseDeDatos(String campo, String nuevoValor) {
         // Implementa la lógica de actualización aquí.
         // Esto podría ser una actualización de SQLite, una llamada a Firebase, o cualquier otro mecanismo de persistencia que estés utilizando.
@@ -133,4 +133,5 @@ public class ProfileActivity extends ToolbarActivity {
         super.onResume();
         recargarDatosUsuario();
     }
+    */
 }

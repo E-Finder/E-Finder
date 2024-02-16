@@ -1,5 +1,6 @@
 package com.example.efinder;
 
+import DAO.UsuarioDAO;
 import Model.Usuario;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -48,7 +49,7 @@ public class BorrarCuentaActivity extends ToolbarActivity {
 
         if (usuarioDAO.borrarUsuario(usuarioId)) {
             // Opcional: Limpiar cualquier dato de sesión o preferencias
-            limpiarDatosDeSesion();
+            //limpiarDatosDeSesion();
 
             // Cerrar sesión o llevar al usuario a la pantalla de inicio de sesión/registro
             Intent intent = new Intent(this, LoginActivity.class);
