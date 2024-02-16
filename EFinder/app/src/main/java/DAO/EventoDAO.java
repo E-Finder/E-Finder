@@ -14,6 +14,7 @@ import java.util.List;
 import DB.DatabaseHelper;
 import Model.Evento;
 
+@SuppressLint("Range")
 public class EventoDAO {
 
     private DatabaseHelper dbHelper;
@@ -61,7 +62,6 @@ public class EventoDAO {
         return rowsAffected > 0;
     }
 
-    @SuppressLint("Range")
     public List<Evento> listarEventos() {
         List<Evento> listaEventos = new ArrayList<>();
         SQLiteDatabase db = null;
@@ -95,13 +95,12 @@ public class EventoDAO {
         return listaEventos;
     }
 
-    @SuppressLint("Range")
     public List<Evento> buscarEventosPorTipo(String tipo) {
         List<Evento> listaEventos = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query("evento",
                 new String[]{"id", "nombre", "descripcion", "tipo", "horario", "ubicacion", "imagen", "valoracion"},
-                "tipo = ?", new String[]{tipo}, null, null, null);
+                "tipo LIKE ?", new String[]{"%"+tipo+"%"}, null, null, null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -121,13 +120,15 @@ public class EventoDAO {
         db.close();
         return listaEventos;
     }
-    @SuppressLint("Range")
+
     public List<Evento> buscarEventosPorUbicacion(String ubicacion) {
         List<Evento> listaEventos = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        // Modificamos la consulta para buscar ubicaciones que contienen la consulta proporcionada
         Cursor cursor = db.query("evento",
                 new String[]{"id", "nombre", "descripcion", "tipo", "horario", "ubicacion", "imagen", "valoracion"},
-                "ubicacion = ?", new String[]{ubicacion}, null, null, null);
+                "ubicacion LIKE ?", new String[]{"%" + ubicacion + "%"}, null, null, null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -147,4 +148,5 @@ public class EventoDAO {
         db.close();
         return listaEventos;
     }
+
 }

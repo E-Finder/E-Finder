@@ -7,6 +7,8 @@ import androidx.appcompat.app.AlertDialog;
 
 public class ToolbarActivity extends AppCompatActivity {
 
+    protected String query="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

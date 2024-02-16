@@ -2,9 +2,6 @@ package com.example.efinder;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
@@ -12,7 +9,7 @@ import Adapter.EventoAdapter;
 import DAO.EventoDAO;
 import Model.Evento;
 
-public class ResultadoLocalizacionActivity extends ToolbarActivity {
+public class ResultadoActividadActivity extends ToolbarActivity {
 
     private RecyclerView recyclerView;
     private EventoAdapter adapter;
@@ -22,7 +19,7 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.resultado_localizacion);
+        setContentView(R.layout.resultado_actividad);
 
         setToolbarOnClicks();
 
@@ -31,14 +28,14 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
 
     }
 
-    private List<Evento> obtenerEventos(String filtroUbicacion) {
+    private List<Evento> obtenerEventos(String filtroTipo) {
         // Filtrar los eventos según la ubicación proporcionada
-        if (filtroUbicacion == null || filtroUbicacion.isEmpty()) {
+        if (filtroTipo == null || filtroTipo.isEmpty()) {
             // Si no se proporciona una ubicación, devolver todos los eventos
             return eventoDAO.listarEventos();
         } else {
             // Si se proporciona una ubicación, devolver los eventos filtrados
-            return eventoDAO.buscarEventosPorUbicacion(filtroUbicacion);
+            return eventoDAO.buscarEventosPorTipo(filtroTipo);
         }
     }
     private void inicializarRecyclerView(){
@@ -50,7 +47,7 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
         Intent intent = getIntent();
         String query = intent.getStringExtra("query");
 
-        // Obtener los eventos filtrados por ubicación
+        // Obtener los eventos filtrados por actividad
         eventos = obtenerEventos(query);
 
         // Configurar el RecyclerView

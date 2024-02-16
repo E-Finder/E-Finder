@@ -12,6 +12,7 @@ import java.util.List;
 import DB.DatabaseHelper;
 import Model.Articulo;
 
+@SuppressLint("Range")
 public class ArticuloDAO {
 
     List<Articulo> listaArticulos;
