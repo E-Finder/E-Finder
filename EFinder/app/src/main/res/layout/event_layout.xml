@@ -14,12 +14,16 @@
         android:id="@+id/textViewAcercaDe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15sp" />
+        android:backgroundTint="@color/ef_secondary"
+        android:fontFamily="@font/roboto"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15sp" />
+        android:fontFamily="@font/roboto"
+        android:textSize="12sp" />
 
 </LinearLayout>
