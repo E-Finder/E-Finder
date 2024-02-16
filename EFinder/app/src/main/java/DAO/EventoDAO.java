@@ -147,4 +147,31 @@ public class EventoDAO {
         db.close();
         return listaEventos;
     }
+
+    @SuppressLint("Range")
+    public List<Evento> buscarEventosPorValoracion(int cantidad) {
+        List<Evento> listaEventos = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query("evento",
+                new String[]{"id", "nombre", "descripcion", "tipo", "horario", "ubicacion", "imagen", "valoracion"},
+                null, null, null, null, "valoracion DESC", String.valueOf(cantidad));
+
+        if (cursor.moveToFirst()) {
+            do {
+                Evento evento = new Evento();
+                evento.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                evento.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
+                evento.setDescripcion(cursor.getString(cursor.getColumnIndex("descripcion")));
+                evento.setTipo(cursor.getString(cursor.getColumnIndex("tipo")));
+                evento.setHorario(cursor.getString(cursor.getColumnIndex("horario")));
+                evento.setUbicacion(cursor.getString(cursor.getColumnIndex("ubicacion")));
+                evento.setImagen(cursor.getString(cursor.getColumnIndex("imagen")));
+                evento.setValoracion(cursor.getDouble(cursor.getColumnIndex("valoracion")));
+                listaEventos.add(evento);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return listaEventos;
+    }
 }
