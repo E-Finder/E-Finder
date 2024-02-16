@@ -64,13 +64,9 @@ public class EventoDAO {
     @SuppressLint("Range")
     public List<Evento> listarEventos() {
         List<Evento> listaEventos = new ArrayList<>();
-        try {
 
-            dbHelper.openDataBase();
+        dbHelper.openDataBase();
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM evento", null);
 
