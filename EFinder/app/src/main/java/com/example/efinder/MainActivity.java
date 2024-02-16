@@ -9,6 +9,8 @@ import android.os.Looper;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static MainActivity instance;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,5 +20,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, HomeActivity.class));
             finish();
         }, 3000);
+    }
+
+    public static MainActivity getInstance(){
+        return instance;
     }
 }

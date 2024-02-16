@@ -4,15 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.List;
 import Adapter.EventoAdapter;
 import DAO.EventoDAO;
 import Model.Evento;
 
-public class ResultadoLocalizacionActivity extends ToolbarActivity {
+import java.util.List;
+
+public class ResultadoLocalizacionActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private EventoAdapter adapter;
@@ -24,14 +25,12 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resultado_localizacion);
 
-        setToolbarOnClicks();
-
         inicializarRecyclerView();
-
-
     }
 
     private List<Evento> obtenerEventos(String filtroUbicacion) {
+        eventoDAO = new EventoDAO(this);
+
         // Filtrar los eventos según la ubicación proporcionada
         if (filtroUbicacion == null || filtroUbicacion.isEmpty()) {
             // Si no se proporciona una ubicación, devolver todos los eventos
@@ -41,10 +40,9 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
             return eventoDAO.buscarEventosPorUbicacion(filtroUbicacion);
         }
     }
-    private void inicializarRecyclerView(){
-        recyclerView = findViewById(R.id.recyclerView);
 
-        eventoDAO = new EventoDAO(this);
+    private void inicializarRecyclerView() {
+        recyclerView = findViewById(R.id.recyclerView);
 
         // Obtener la consulta de búsqueda de la actividad anterior
         Intent intent = getIntent();
@@ -54,7 +52,7 @@ public class ResultadoLocalizacionActivity extends ToolbarActivity {
         eventos = obtenerEventos(query);
 
         // Configurar el RecyclerView
-        adapter = new EventoAdapter(eventos);
+        adapter = new EventoAdapter(this, eventos); // Asegúrate de que el constructor de EventoAdapter acepte un Context como primer parámetro
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
