@@ -82,6 +82,10 @@
             android:name=".VipActivity">
         </activity>
 
+        <activity
+            android:name=".DarAltaVip">
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

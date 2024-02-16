@@ -40,7 +40,7 @@ public class VipActivity extends ToolbarActivity{
             // El usuario no es VIP, abrir la actividad para darse de alta
             Intent intentDarAltaVip = new Intent(this, DarAltaVip.class);
             startActivity(intentDarAltaVip);
-            finish();  // Opcional, dependiendo de si deseas cerrar la actividad actual
+            // finish();  // Opcional, dependiendo de si deseas cerrar la actividad actual
         }
 
     }
