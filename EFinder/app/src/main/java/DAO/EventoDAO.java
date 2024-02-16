@@ -96,6 +96,11 @@ public class EventoDAO {
     }
 
     public List<Evento> buscarEventosPorTipo(String tipo) {
+        try {
+            dbHelper.createDataBase();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         List<Evento> listaEventos = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query("evento",
@@ -122,6 +127,12 @@ public class EventoDAO {
     }
 
     public List<Evento> buscarEventosPorUbicacion(String ubicacion) {
+        try {
+            dbHelper.createDataBase();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         List<Evento> listaEventos = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 

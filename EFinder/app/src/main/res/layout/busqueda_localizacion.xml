@@ -10,9 +10,10 @@
         layout="@layout/toolbar_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/colorStripTop"
@@ -67,12 +68,13 @@
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toTopOf="@+id/colorStripDestacados"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchViewLocalizacion" />
+        app:layout_constraintTop_toBottomOf="@id/searchViewLocalizacion" />
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchViewLocalizacion"
