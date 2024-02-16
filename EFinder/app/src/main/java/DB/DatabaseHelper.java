@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String TAG = "DatabaseHelper"; // Variable TAG ahora inicializada
+    private static final String TAG = "DatabaseHelper";
     private static final String DB_NAME = "EFinder.db";
     private static final int DB_VERSION = 1;
     private final Context context;
@@ -73,7 +73,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public SQLiteDatabase openDataBase() throws SQLException {
         String myPath = DB_PATH + DB_NAME;
-        return SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+        SQLiteDatabase db;
+        if (!checkDataBase()) {
+            try {
+                copyDataBase();
+                Log.d(TAG, "Database copied successfully");
+            } catch (IOException e) {
+                throw new Error("Error copying database");
+            }
+        }
+        db = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+        return db;
     }
 
     @Override
@@ -83,11 +93,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Database creation logic if needed
+        // No need to implement this if you are using a pre-populated database
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Database upgrade logic if needed
+        // No need to implement this if you are using a pre-populated database
     }
 }

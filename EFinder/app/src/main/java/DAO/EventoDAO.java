@@ -64,30 +64,37 @@ public class EventoDAO {
     @SuppressLint("Range")
     public List<Evento> listarEventos() {
         List<Evento> listaEventos = new ArrayList<>();
+        SQLiteDatabase db = null;
+        try {
+            dbHelper.createDataBase(); // Aseguramos que la base de datos esté creada o copiada
+            db = dbHelper.openDataBase(); // Abrimos la base de datos
+            Cursor cursor = db.rawQuery("SELECT * FROM evento", null);
 
-        dbHelper.openDataBase();
-
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM evento", null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                Evento evento = new Evento();
-                evento.setId(cursor.getInt(cursor.getColumnIndex("id")));
-                evento.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
-                evento.setDescripcion(cursor.getString(cursor.getColumnIndex("descripcion")));
-                evento.setTipo(cursor.getString(cursor.getColumnIndex("tipo")));
-                evento.setHorario(cursor.getString(cursor.getColumnIndex("horario")));
-                evento.setUbicacion(cursor.getString(cursor.getColumnIndex("ubicacion")));
-                evento.setImagen(cursor.getString(cursor.getColumnIndex("imagen")));
-                evento.setValoracion(cursor.getDouble(cursor.getColumnIndex("valoracion")));
-                listaEventos.add(evento);
-            } while (cursor.moveToNext());
+            if (cursor.moveToFirst()) {
+                do {
+                    Evento evento = new Evento();
+                    evento.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                    evento.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
+                    evento.setDescripcion(cursor.getString(cursor.getColumnIndex("descripcion")));
+                    evento.setTipo(cursor.getString(cursor.getColumnIndex("tipo")));
+                    evento.setHorario(cursor.getString(cursor.getColumnIndex("horario")));
+                    evento.setUbicacion(cursor.getString(cursor.getColumnIndex("ubicacion")));
+                    evento.setImagen(cursor.getString(cursor.getColumnIndex("imagen")));
+                    evento.setValoracion(cursor.getDouble(cursor.getColumnIndex("valoracion")));
+                    listaEventos.add(evento);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+            }
         }
-        cursor.close();
-        db.close();
         return listaEventos;
     }
+
     @SuppressLint("Range")
     public List<Evento> buscarEventosPorTipo(String tipo) {
         List<Evento> listaEventos = new ArrayList<>();
