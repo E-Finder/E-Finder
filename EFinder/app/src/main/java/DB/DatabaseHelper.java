@@ -1,10 +1,10 @@
 package DB;
 
 import android.content.Context;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,22 +13,28 @@ import java.io.OutputStream;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "DatabaseHelper";
-    private static final String DB_NAME = "EFinder.db";
-    private static final int DB_VERSION = 1;
+    private static String DB_NAME = "EFinder.db";
+    private static final int DB_VERSION = 1; // Incrementar según sea necesario para nuevas versiones
     private final Context context;
-    private final String DB_PATH;
+    private String DB_PATH;
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         this.context = context;
         this.DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
+        try {
+            this.createDataBase();
+        } catch (IOException e) {
+            throw new RuntimeException("Error creating database", e);
+        }
     }
 
+    // Crea la base de datos si no existe y la copia desde assets
     public void createDataBase() throws IOException {
         boolean dbExist = checkDataBase();
         if (!dbExist) {
-            // Create an empty database in the system directory
-            getReadableDatabase();
+            this.getReadableDatabase();
+            this.close(); // Cerrarla antes de copiar la nueva
             try {
                 copyDataBase();
                 Log.d(TAG, "Database created successfully");
@@ -38,66 +44,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    // Verifica si la base de datos ya existe para evitar copiar cada vez que se abre la aplicación
     private boolean checkDataBase() {
-        SQLiteDatabase checkDB = null;
-        try {
-            String myPath = DB_PATH + DB_NAME;
-            checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
-        } catch (Exception e) {
-            // Database does't exist yet or failed to open
-            Log.e(TAG, "Database does not exist or failed to open", e);
-        }
-        if (checkDB != null) {
-            checkDB.close();
-        }
-        return checkDB != null;
+        File dbFile = new File(DB_PATH + DB_NAME);
+        return dbFile.exists();
     }
 
+    // Copia la base de datos desde assets
     private void copyDataBase() throws IOException {
         InputStream myInput = context.getAssets().open(DB_NAME);
         String outFileName = DB_PATH + DB_NAME;
-        File databaseDirectory = new File(DB_PATH);
-        if (!databaseDirectory.exists()) {
-            databaseDirectory.mkdirs(); // Create parent directories if not exist
-        }
         OutputStream myOutput = new FileOutputStream(outFileName);
+
         byte[] buffer = new byte[1024];
         int length;
         while ((length = myInput.read(buffer)) > 0) {
             myOutput.write(buffer, 0, length);
         }
+
         myOutput.flush();
         myOutput.close();
         myInput.close();
     }
 
-    public SQLiteDatabase openDataBase() throws SQLException {
-        String myPath = DB_PATH + DB_NAME;
-        SQLiteDatabase db;
-        if (!checkDataBase()) {
-            try {
-                copyDataBase();
-                Log.d(TAG, "Database copied successfully");
-            } catch (IOException e) {
-                throw new Error("Error copying database");
-            }
-        }
-        db = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
-        return db;
-    }
-
-    @Override
-    public synchronized void close() {
-        super.close();
-    }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // No need to implement this if you are using a pre-populated database
+        // No se necesita ya que la DB viene pre-poblada
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // No need to implement this if you are using a pre-populated database
+        // Aquí puedes manejar las actualizaciones de la base de datos
+    }
+
+    // Agrega una función para abrir la base de datos
+    public SQLiteDatabase openDataBase() {
+        String myPath = DB_PATH + DB_NAME;
+        return SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
     }
 }

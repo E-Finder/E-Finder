@@ -1,5 +1,6 @@
 package Adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,17 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
         Evento evento = eventos.get(position);
         holder.nombreTextView.setText(evento.getNombre());
         holder.descripcionTextView.setText(evento.getDescripcion());
-        // Aquí puedes configurar la imagen del evento si es necesario
+        Context context = holder.itemView.getContext();
+        cargarImagenDesdeRuta(context, holder.imageButton, evento.getImagen());
+    }
+
+    private void cargarImagenDesdeRuta(Context context, ImageButton imageButton, String rutaRelativa) {
+        int idRecurso = context.getResources().getIdentifier(rutaRelativa, "drawable", context.getPackageName());
+        if (idRecurso != 0) { // Recurso encontrado
+            imageButton.setImageResource(idRecurso);
+        } else { // Recurso no encontrado, usar imagen por defecto
+            imageButton.setImageResource(R.drawable.fotoerror);
+        }
     }
 
     @Override
