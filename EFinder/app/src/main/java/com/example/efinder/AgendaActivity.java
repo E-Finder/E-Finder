@@ -9,6 +9,5 @@ public class AgendaActivity extends ToolbarActivity {
         setContentView(R.layout.agenda_layout);
 
         setToolbarOnClicks();
-
     }
 }

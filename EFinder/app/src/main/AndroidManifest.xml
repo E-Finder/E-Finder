@@ -51,6 +51,22 @@
             android:name=".SettingsActivity">
         </activity>
 
+        <activity
+            android:name=".AcercaDeActivity">
+        </activity>
+
+        <activity
+            android:name=".SiguenosActivity">
+        </activity>
+
+        <activity
+            android:name=".ContactanosActivity">
+        </activity>
+
+        <activity
+            android:name=".CuentaBorradaActivity">
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -52,5 +52,15 @@
     <string name="siguenos_en_twitter_para_no_perderte_ninguna_actualizacion_noticias_y_mas">Síguenos en Twitter para no perderte ninguna actualización, noticias y más</string>
     <string name="sguenos_en_nuestro_twitter">¡Síguenos en nuestro Twitter!</string>
     <string name="redes_sociales">Redes sociales</string>
+    <string name="introduce_tu_asunto">Introduce tu asunto</string>
+    <string name="enviar">Enviar</string>
+    <string name="introduce_tu_tel_fono">Introduce tu teléfono</string>
+    <string name="nombre">Nombre</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="c_mo_podemos_ayudarte">¿Cómo podemos ayudarte?</string>
+    <string name="asunto">Asunto</string>
+    <string name="email">Email</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="telefono">Teléfono</string>
 
 </resources>

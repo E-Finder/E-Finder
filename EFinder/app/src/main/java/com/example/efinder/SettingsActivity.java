@@ -2,62 +2,82 @@ package com.example.efinder;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class SettingsActivity extends ToolbarActivity {
-    protected Button buttonAcercaDe;
-    protected Button buttonSiguenos;
-    protected Button buttonContactanos;
-    protected Button buttonVIP;
-    protected Button buttonNotificaciones;
-    protected Button buttonCerrarSesion;
+    private Button buttonAcercaDe;
+    private Button buttonSiguenos;
+    private Button buttonContactanos;
+    private Button buttonVIP;
+    private Button buttonNotificaciones;
+    private Button buttonCerrarSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_layout);
 
+        inicializarBotones();
         setToolbarOnClicks();
     }
 
-    public void setToolbarOnClicks() {
+    private void inicializarBotones() {
         buttonAcercaDe = findViewById(R.id.buttonAcercaDe);
-            buttonSiguenos = findViewById(R.id.buttonSiguenos);
+        buttonSiguenos = findViewById(R.id.buttonSiguenos);
         buttonContactanos = findViewById(R.id.buttonContactanos);
         buttonVIP = findViewById(R.id.buttonVIP);
         buttonNotificaciones = findViewById(R.id.buttonNotificaciones);
         buttonCerrarSesion = findViewById(R.id.buttonCerrarSesion);
 
-
-        buttonAcercaDe.setOnClickListener(v -> {
-            // Iniciar la actividad correspondiente al botón Acerca de
-            startActivity(new Intent(this, AcercaDeActivity.class));
-            System.out.println("aoinaga");
+        buttonAcercaDe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsActivity.this, AcercaDeActivity.class);
+                startActivity(intent);
+            }
         });
 
-        buttonSiguenos.setOnClickListener(v -> {
-            // Iniciar la actividad correspondiente al botón Siguenos
-            startActivity(new Intent(this, AgendaActivity.class));
+        buttonSiguenos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsActivity.this, SiguenosActivity.class);
+                startActivity(intent);
+            }
         });
 
-        buttonContactanos.setOnClickListener(v -> {
-            // Iniciar la actividad correspondiente al botón Contactanos
-            startActivity(new Intent(this, ContactanosActivity.class));
+        buttonContactanos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsActivity.this, ContactanosActivity.class);
+                startActivity(intent);
+            }
         });
 
-        buttonVIP.setOnClickListener(v -> {
-            // Iniciar la actividad correspondiente al botón Calendar
-            startActivity(new Intent(this, AgendaActivity.class));
+        buttonVIP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(SettingsActivity.this, VIPActivity.class);
+                //startActivity(intent);
+            }
         });
 
-        buttonNotificaciones.setOnClickListener(v -> {
-            // Iniciar la actividad correspondiente al botón Calendar
-            startActivity(new Intent(this, AgendaActivity.class));
+        buttonNotificaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(SettingsActivity.this, NotificacionesActivity.class);
+                //startActivity(intent);
+            }
         });
 
-        buttonCerrarSesion.setOnClickListener(v -> {
-            // Iniciar la actividad correspondiente al botón Calendar
-            startActivity(new Intent(this, AgendaActivity.class));
+        buttonCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(SettingsActivity.this, CerrarSesionActivity.class);
+                //startActivity(intent);
+            }
         });
     }
+
+    // Asume que este método ya está implementado en ToolbarActivity o lo implementarás.
 }

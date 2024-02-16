@@ -16,7 +16,6 @@ public class BusquedaLocalizacionActivity extends ToolbarActivity {
 
         setToolbarOnClicks();
 
-
         searchView = findViewById(R.id.searchViewLocalizacion);
 
         // Configurar el listener para el SearchView

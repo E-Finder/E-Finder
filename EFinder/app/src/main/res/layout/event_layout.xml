@@ -7,7 +7,8 @@
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="150dp"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/textViewAcercaDe"
