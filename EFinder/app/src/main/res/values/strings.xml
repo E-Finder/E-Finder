@@ -62,5 +62,8 @@
     <string name="email">Email</string>
     <string name="mensaje">Mensaje</string>
     <string name="telefono">Teléfono</string>
+    <string name="nombre_articulo_por_defecto">nombre_articulo</string>
+    <string name="descripcion_articulo_por_defecto">descripcion_articulo</string>
+    <string name="precio_articulo_por_defecto">precio_articulo</string>
 
 </resources>

@@ -12,6 +12,14 @@ public class Articulo {
     public Articulo() {
     }
 
+    public Articulo(String nombre, String descripcion, String tipo, double precio, String imagen) {
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.tipo=tipo;
+        this.precio=precio;
+        this.imagen=imagen;
+    }
+
     // Getters and setters
     public int getId() {
         return id;

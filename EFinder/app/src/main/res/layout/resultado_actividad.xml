@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="@+id/colorStripTop" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonAtras"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"

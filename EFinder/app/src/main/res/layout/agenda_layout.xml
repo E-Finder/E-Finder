@@ -96,7 +96,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonAtras"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:backgroundTint="#00348E91"

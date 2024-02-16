@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonAtras"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:backgroundTint="#348E91"
@@ -61,13 +61,8 @@
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Transferencia" />
+            android:text="Paypal" />
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tarjeta" />
     </RadioGroup>
 
     <EditText

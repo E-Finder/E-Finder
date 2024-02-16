@@ -17,7 +17,7 @@ public class ArticuloDAO {
 
     List<Articulo> listaArticulos;
 
-    private DatabaseHelper dbHelper;
+    private static DatabaseHelper dbHelper;
 
     public ArticuloDAO(Context context) {
         dbHelper = new DatabaseHelper(context);
@@ -127,6 +127,63 @@ public class ArticuloDAO {
         cursor.close();
         db.close();
         return listaArticulos;
+    }
+
+    @SuppressLint("Range")
+    public static String obtenerRutaImagenDesdeBaseDeDatos(int idProducto) {
+        // Realiza la consulta a la base de datos y obtén la ruta de la imagen
+        // Adaptar según tu implementación de SQLiteOpenHelper o SQLiteDatabase
+        String rutaImagen = "";
+
+        // Ejemplo de consulta (asegúrate de cerrar el cursor al final)
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(
+                "productos",
+                new String[]{"imagen"},
+                "_id = ?",
+                new String[]{String.valueOf(idProducto)},
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            rutaImagen = cursor.getString(cursor.getColumnIndex("imagen"));
+            cursor.close();
+        }
+
+        return rutaImagen;
+    }
+
+    public static ArrayList<Articulo> obtenerProductosDesdeBaseDeDatos() {
+        ArrayList<Articulo> listaProductos = new ArrayList<>();
+
+        // Aquí deberías realizar la consulta a tu base de datos SQLite y obtener los resultados
+
+        // Ejemplo: Obtener datos de la tabla "productos"
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] columnas = {"_id", "nombre", "descripcion", "tipo", "precio", "imagen"};
+        Cursor cursor = db.query("productos", columnas, null, null, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                // Obtener datos de cada fila y crear un objeto Articulo
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("_id"));
+                @SuppressLint("Range") String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
+                @SuppressLint("Range") String descripcion = cursor.getString(cursor.getColumnIndex("descripcion"));
+                @SuppressLint("Range") String tipo = cursor.getString(cursor.getColumnIndex("tipo"));
+                @SuppressLint("Range") double precio = cursor.getDouble(cursor.getColumnIndex("precio"));
+                @SuppressLint("Range") String imagen = cursor.getString(cursor.getColumnIndex("imagen"));
+
+                Articulo producto = new Articulo(nombre, descripcion, tipo, precio, imagen);
+                listaProductos.add(producto);
+            } while (cursor.moveToNext());
+
+            // Cerrar el cursor después de usarlo
+            cursor.close();
+        }
+
+        return listaProductos;
     }
 
 

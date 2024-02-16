@@ -11,7 +11,16 @@ public class Usuario {
     private String imagen;
     private boolean vip;
 
+    private static Usuario instancia;
+
     public Usuario() {
+    }
+
+    public static Usuario obtenerInstancia() {
+        if (instancia == null) {
+            instancia = new Usuario();
+        }
+        return instancia;
     }
 
     // Getters and setters

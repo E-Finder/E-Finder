@@ -33,7 +33,7 @@ public class ToolbarActivity extends AppCompatActivity {
     public void setToolbarOnClicks() {
         findViewById(R.id.imageButtonHome).setOnClickListener(v -> startActivity(new Intent(this, HomeActivity.class)));
         findViewById(R.id.imageButtonCalendar).setOnClickListener(v -> startActivity(new Intent(this, AgendaActivity.class)));
-        findViewById(R.id.imageButtonShop).setOnClickListener(v -> startActivity(new Intent(this, ProfileActivity.class)));
+        findViewById(R.id.imageButtonShop).setOnClickListener(v -> startActivity(new Intent(this, VipActivity.class)));
         findViewById(R.id.imageButtonProfile).setOnClickListener(v -> startActivity(new Intent(this, ProfileActivity.class)));
         findViewById(R.id.imageButtonPlan).setOnClickListener(v -> mostrarDialogo());
     }
