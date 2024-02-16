@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgregarPagoActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/azul"
+            tools:ignore="MissingConstraints">
+
+                <ImageButton
+                    android:id="@+id/btnLoginBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Volver"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:onClick="onBackButtonClick"
+                    android:src="@drawable/circle_left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Añadir pago"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="100dp"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp"
+                    android:fontFamily="@font/opensans_condensed_bold"/>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+        <TextView
+            android:id="@+id/idTVHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="Pagar con PayPal"
+            android:textAlignment="center"
+            android:textColor="#333333"
+            android:fontFamily="@font/opensans_condensed_bold"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/idEdtAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_below="@id/idTVHeading"
+            android:fontFamily="@font/opensans_sondensed_regular"
+            android:hint="Ingrese La cantidad"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/idBtnMakePayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idEdtAmount"
+            android:fontFamily="@font/opensans_condensed_bold"
+            android:layout_marginTop="64dp"
+            android:textSize="18sp"
+            android:text="Hacer el pago"
+            android:onClick="onClickHacerPago"/>
+
+</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

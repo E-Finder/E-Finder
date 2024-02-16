@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrarActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/azul"
+            tools:ignore="MissingConstraints">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Volver"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:onClick="onBackButtonClick"
+                    android:src="@drawable/circle_left"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Registrar"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="130dp"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp"
+                    android:fontFamily="@font/opensans_condensed_bold"/>
+        </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginTop="100dp"
+        tools:context=".RegistroActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/opensans_condensed_bold"
+            android:text="Registrar"
+            android:textColor="#333333"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editTextCorreoReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo Electrónico*"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/opensans_sondensed_regular"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:id="@+id/editTextContraseñaReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña*"
+            android:inputType="textPassword"
+            android:fontFamily="@font/opensans_sondensed_regular"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextRepetirContraseñaReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Repetir Contraseña*"
+            android:inputType="textPassword"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/opensans_sondensed_regular"/>/>
+
+        <Button
+            android:id="@+id/btnConfirmar"
+            android:layout_width="match_parent"
+            android:layout_marginTop="80dp"
+            android:layout_height="wrap_content"
+            android:text="Confirmar"
+            android:textSize="18sp"
+            android:fontFamily="@font/opensans_condensed_bold"
+            android:onClick="onClickRegistrar"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

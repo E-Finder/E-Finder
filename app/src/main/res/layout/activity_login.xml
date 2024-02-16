@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/azul"
+            tools:ignore="MissingConstraints">
+
+                <ImageButton
+                    android:id="@+id/btnLoginBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Volver"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="14dp"
+                    android:onClick="onBackButtonClick"
+                    android:src="@drawable/circle_left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acceder"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="130dp"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp"
+                    android:fontFamily="@font/opensans_condensed_bold"/>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="120dp"
+                android:fontFamily="@font/opensans_condensed_bold"
+                android:text="Acceder como usuario"
+                android:textColor="#333333"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/opensans_sondensed_regular"
+                android:gravity="center"
+                android:text="Introduzca sus credenciales para iniciar sesión"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/opensans_sondensed_regular"
+                android:hint="Correo electrónico*"
+                android:inputType="textEmailAddress" />
+
+
+            <EditText
+                android:id="@+id/etContrasenea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/opensans_sondensed_regular"
+                android:hint="Contraseña*"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/btnAcceder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/opensans_condensed_bold"
+                android:onClick="accederButtonClick"
+                android:text="Acceder"
+                android:textSize="18sp" />
+
+
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/opensans_condensed_bold"
+                android:text="Registrarse"
+                android:onClick="registrarButtonClick"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/opensans_sondensed_regular"
+                android:text="Al continuar, también aceptas los Términos de servicios y política de privacidad"
+                android:textColor="#666666"
+                android:textSize="13sp"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+

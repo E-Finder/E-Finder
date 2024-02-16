@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotificacionesActivity">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/azul"
+        tools:ignore="MissingConstraints">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Volver"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="14dp"
+                android:onClick="onBackButtonClick"
+                android:src="@drawable/circle_left"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notificaciones"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="100dp"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:fontFamily="@font/opensans_condensed_bold"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="16dp">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Centro de notificaciones"
+    android:fontFamily="@font/opensans_condensed_bold"
+    android:textSize="18sp"
+    android:layout_gravity="center"
+    android:layout_marginTop="100dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Administro los notificaciones promocionales que quires recibir de nosotros"
+        android:fontFamily="@font/opensans_sondensed_regular"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="120dp">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="SMS"
+        android:textSize="16sp"
+        android:fontFamily="@font/opensans_sondensed_regular"/>
+
+    <Switch
+        android:id="@+id/switchSMS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="16dp">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="E-mails"
+        android:textSize="16sp"
+        android:fontFamily="@font/opensans_sondensed_regular"/>
+
+    <Switch
+        android:id="@+id/switchBloquearCorreos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="16dp">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Notificaciones push"
+        android:textSize="16sp"
+        android:fontFamily="@font/opensans_sondensed_regular"/>
+
+    <Switch
+        android:id="@+id/switchNotificacionesPush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+
+<Button
+    android:id="@+id/btnGuardar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Guardar"
+    android:textSize="18sp"
+    android:fontFamily="@font/opensans_condensed_bold"
+    android:layout_marginTop="80dp"/>
+
+</LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
