@@ -12,6 +12,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+
+@SuppressLint("Range")
 public class UsuarioDAO {
 
     private DatabaseHelper dbHelper;

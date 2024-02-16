@@ -14,6 +14,7 @@ public class BusquedaLocalizacionActivity extends ToolbarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.busqueda_localizacion);
 
+
         setToolbarOnClicks();
 
         searchView = findViewById(R.id.searchViewLocalizacion);
@@ -37,9 +38,9 @@ public class BusquedaLocalizacionActivity extends ToolbarActivity {
     }
 
     private void iniciarActividadResultados(String query) {
+        this.query=query;
         Intent intent = new Intent(this, ResultadoLocalizacionActivity.class);
-        //intent.putExtra("query", query); // Puedes pasar la consulta de búsqueda a la siguiente actividad si es necesario
+        intent.putExtra("query", query); // Puedes pasar la consulta de búsqueda a la siguiente actividad si es necesario
         startActivity(intent);
     }
-
-    }
+}

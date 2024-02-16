@@ -26,7 +26,7 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
     @Override
     public EventoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.event_layout, parent, false);
+                .inflate(R.layout.event_item_layout, parent, false);
         return new EventoViewHolder(itemView);
     }
 

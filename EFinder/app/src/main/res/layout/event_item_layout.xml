@@ -14,8 +14,10 @@
         android:id="@+id/textViewAcercaDe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/ef_primary"
         android:backgroundTint="@color/ef_secondary"
         android:fontFamily="@font/roboto"
+        android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold" />
 
