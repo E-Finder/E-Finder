@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+    <string name="app_name">EFINDER</string>
+    <string name="seleccionar_modo">Seleccionar Modo</string>
+    <string-array name="modos_array">
+        <item>Modo A</item>
+        <item>Modo B</item>
+    </string-array>
+</resources>
