@@ -30,7 +30,7 @@ public class InformacionActivity extends ToolbarActivity{
         String tipo = intent.getStringExtra("tipo");
         String horario = intent.getStringExtra("horario");
         String ubicacion = intent.getStringExtra("ubicacion");
-        String valoracion = intent.getStringExtra("valoracion");
+        double valoracion = intent.getDoubleExtra("valoracion", 0.0);
         String imagen = intent.getStringExtra("imagen");
 
         // Actualizar la vista
@@ -39,14 +39,15 @@ public class InformacionActivity extends ToolbarActivity{
         textViewTipo.setText(tipo);
         textViewHorario.setText(horario);
         textViewUbicacion.setText(ubicacion);
-        textViewValoracion.setText(valoracion);
+        textViewValoracion.setText(String.format("%.2f", valoracion));
 
         // Cargar la imagen
-        int idRecurso = getResources().getIdentifier(imagen, "drawable", getPackageName());
+        String nombreLimpio = imagen.toLowerCase().replaceAll("\\.jpg|\\.png", ""); // Elimina la extensión y convierte a minúsculas
+        int idRecurso = getResources().getIdentifier(nombreLimpio, "drawable", getPackageName());
         if (idRecurso != 0) {
             imageView.setImageResource(idRecurso);
         } else {
-            imageView.setImageResource(R.drawable.fotoerror); // imagen por defecto
+            imageView.setImageResource(R.drawable.fotoerror); // Imagen por defecto
         }
     }
 

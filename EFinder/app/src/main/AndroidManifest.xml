@@ -82,6 +82,18 @@
             android:name=".InformacionActivity">
         </activity>
 
+        <activity
+            android:name=".BusquedaArticuloActivity">
+        </activity>
+
+        <activity
+            android:name=".InformacionArticuloActivity">
+        </activity>
+
+        <activity
+            android:name=".ResultadoArticuloActivity">
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

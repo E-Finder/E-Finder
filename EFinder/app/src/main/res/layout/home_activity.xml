@@ -3,11 +3,107 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/colorStripTop"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="#348e91"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="Efinder"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:translationY="-10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/colorStripTop"
+        app:layout_constraintEnd_toEndOf="@+id/colorStripTop"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido usuario"
+        tools:layout_editor_absoluteX="257dp"
+        tools:layout_editor_absoluteY="95dp" />
+
+    <ImageButton
+        android:id="@+id/imageButtonRecomendadas"
+        android:layout_width="392dp"
+        android:layout_height="156dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.178"
+        app:srcCompat="@drawable/_648836104824" />
+
+    <TextView
+        android:id="@+id/textViewRecomendadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recomendadas"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.351" />
+
+    <ImageButton
+        android:id="@+id/imageButtonRuta"
+        android:layout_width="392dp"
+        android:layout_height="156dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.476"
+        app:srcCompat="@drawable/rutas" />
+
+    <TextView
+        android:id="@+id/textViewMejorValorada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mejor valoradas"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewShow"
+        android:layout_width="389dp"
+        android:layout_height="237dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.882" />
 
     <include
-        android:id="@+id/include3"
-        layout="@layout/toolbar_layout" />
+        layout="@layout/toolbar_layout"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

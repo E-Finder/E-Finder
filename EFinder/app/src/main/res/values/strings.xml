@@ -62,5 +62,6 @@
     <string name="email">Email</string>
     <string name="mensaje">Mensaje</string>
     <string name="telefono">Teléfono</string>
+    <string name="spinner_prompt">Seleccionar modo</string>
 
 </resources>

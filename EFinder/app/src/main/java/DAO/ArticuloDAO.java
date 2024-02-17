@@ -1,5 +1,6 @@
 package DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -78,21 +79,31 @@ public class ArticuloDAO {
         return listaArticulos;
     }
 
+    @SuppressLint("Range")
     public List<Articulo> buscarArticulosPorNombre(String nombre) {
         List<Articulo> listaArticulos = new ArrayList<>();
-        String selection = "nombre LIKE ?";
-        String[] selectionArgs = new String[]{"%" + nombre + "%"};
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query("articulo", // Asegúrate de que esta sea la tabla correcta para los artículos
+                new String[]{"id", "nombre", "descripcion", "tipo", "precio", "imagen"},
+                "nombre LIKE ?", new String[]{"%" + nombre + "%"}, null, null, null);
 
-        try (SQLiteDatabase db = dbHelper.getReadableDatabase();
-             Cursor cursor = db.query("articulo", null, selection, selectionArgs, null, null, null)) {
-            while (cursor.moveToNext()) {
-                listaArticulos.add(crearArticuloDesdeCursor(cursor));
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Error al buscar artículos por nombre", e);
+        if (cursor.moveToFirst()) {
+            do {
+                Articulo articulo = new Articulo();
+                articulo.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                articulo.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
+                articulo.setDescripcion(cursor.getString(cursor.getColumnIndex("descripcion")));
+                articulo.setTipo(cursor.getString(cursor.getColumnIndex("tipo")));
+                articulo.setPrecio(cursor.getDouble(cursor.getColumnIndex("precio"))); // Asegúrate de que este campo existe y es del tipo correcto
+                articulo.setImagen(cursor.getString(cursor.getColumnIndex("imagen")));
+                listaArticulos.add(articulo);
+            } while (cursor.moveToNext());
         }
+        cursor.close();
+        db.close();
         return listaArticulos;
     }
+
 
     public List<Articulo> buscarArticulosPorTipo(String tipo) {
         List<Articulo> listaArticulos = new ArrayList<>();
@@ -109,6 +120,8 @@ public class ArticuloDAO {
         }
         return listaArticulos;
     }
+
+
 
     private Articulo crearArticuloDesdeCursor(Cursor cursor) {
         Articulo articulo = new Articulo();

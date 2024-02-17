@@ -108,4 +108,27 @@ public class UsuarioDAO {
             Log.e(TAG, "Error al cambiar estado VIP", e);
         }
     }
+
+    public boolean checkUser(String email, String password) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] columns = { "id" }; // Puedes seleccionar solo una columna, ya que solo quieres verificar la existencia
+        String selection = "correo = ? AND contrasena = ?";
+        String[] selectionArgs = { email, password };
+
+        try (Cursor cursor = db.query("usuario", columns, selection, selectionArgs, null, null, null)) {
+            if (cursor.moveToFirst()) {
+                // Usuario encontrado
+                return true;
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error al buscar usuario", e);
+        } finally {
+            if (db != null && db.isOpen()) {
+                db.close();
+            }
+        }
+
+        // Usuario no encontrado
+        return false;
+    }
 }

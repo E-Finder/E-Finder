@@ -13,7 +13,7 @@ import Model.Evento;
 
 import java.util.List;
 
-public class ResultadoLocalizacionActivity extends AppCompatActivity {
+public class ResultadoLocalizacionActivity extends ToolbarActivity {
 
     private RecyclerView recyclerView;
     private EventoAdapter adapter;
@@ -26,6 +26,8 @@ public class ResultadoLocalizacionActivity extends AppCompatActivity {
         setContentView(R.layout.resultado_localizacion);
 
         inicializarRecyclerView();
+
+        setToolbarOnClicks();
     }
 
     private List<Evento> obtenerEventos(String filtroUbicacion) {

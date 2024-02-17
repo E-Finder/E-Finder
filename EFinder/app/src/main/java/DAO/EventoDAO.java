@@ -1,5 +1,6 @@
 package DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -83,36 +84,59 @@ public class EventoDAO {
     }
 
 
+    @SuppressLint("Range")
     public List<Evento> buscarEventosPorTipo(String tipo) {
         List<Evento> listaEventos = new ArrayList<>();
-        String[] columns = {"id", "nombre", "descripcion", "tipo", "horario", "ubicacion", "imagen", "valoracion"};
-        String selection = "tipo LIKE ?";
-        String[] selectionArgs = {"%" + tipo + "%"};
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query("evento",
+                new String[]{"id", "nombre", "descripcion", "tipo", "horario", "ubicacion", "imagen", "valoracion"},
+                "tipo = ?", new String[]{tipo}, null, null, null);
 
-        try (SQLiteDatabase db = dbHelper.getReadableDatabase();
-             Cursor cursor = db.query("evento", columns, selection, selectionArgs, null, null, null)) {
-            while (cursor.moveToNext()) {
-                listaEventos.add(crearEventoDesdeCursor(cursor));
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Error al buscar eventos por tipo", e);
+        if (cursor.moveToFirst()) {
+            do {
+                Evento evento = new Evento();
+                evento.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                evento.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
+                evento.setDescripcion(cursor.getString(cursor.getColumnIndex("descripcion")));
+                evento.setTipo(cursor.getString(cursor.getColumnIndex("tipo")));
+                evento.setHorario(cursor.getString(cursor.getColumnIndex("horario")));
+                evento.setUbicacion(cursor.getString(cursor.getColumnIndex("ubicacion")));
+                evento.setImagen(cursor.getString(cursor.getColumnIndex("imagen")));
+                evento.setValoracion(cursor.getDouble(cursor.getColumnIndex("valoracion")));
+                listaEventos.add(evento);
+            } while (cursor.moveToNext());
         }
+        cursor.close();
+        db.close();
         return listaEventos;
     }
 
+    @SuppressLint("Range")
     public List<Evento> buscarEventosPorUbicacion(String ubicacion) {
         List<Evento> listaEventos = new ArrayList<>();
-        String[] columns = {"id", "nombre", "descripcion", "tipo", "horario", "ubicacion", "imagen", "valoracion"};
-        String selection = "ubicacion LIKE ?";
-        String[] selectionArgs = {"%" + ubicacion + "%"};
-
+        // Uso del patrón try-with-resources para manejar automáticamente el cierre del Cursor y la DB
         try (SQLiteDatabase db = dbHelper.getReadableDatabase();
-             Cursor cursor = db.query("evento", columns, selection, selectionArgs, null, null, null)) {
-            while (cursor.moveToNext()) {
-                listaEventos.add(crearEventoDesdeCursor(cursor));
+             Cursor cursor = db.query("evento",
+                     new String[]{"id", "nombre", "descripcion", "tipo", "horario", "ubicacion", "imagen", "valoracion"},
+                     "ubicacion = ?", new String[]{ubicacion}, null, null, null)) {
+
+            if (cursor.moveToFirst()) {
+                do {
+                    Evento evento = new Evento();
+                    evento.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                    evento.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
+                    evento.setDescripcion(cursor.getString(cursor.getColumnIndex("descripcion")));
+                    evento.setTipo(cursor.getString(cursor.getColumnIndex("tipo")));
+                    evento.setHorario(cursor.getString(cursor.getColumnIndex("horario")));
+                    evento.setUbicacion(cursor.getString(cursor.getColumnIndex("ubicacion")));
+                    evento.setImagen(cursor.getString(cursor.getColumnIndex("imagen")));
+                    evento.setValoracion(cursor.getDouble(cursor.getColumnIndex("valoracion")));
+                    listaEventos.add(evento);
+                } while (cursor.moveToNext());
             }
         } catch (Exception e) {
-            Log.e(TAG, "Error al buscar eventos por ubicación", e);
+            // Manejo de cualquier excepción que pueda ocurrir durante la consulta o el procesamiento del cursor
+            Log.e("EventoDAO", "Error al buscar eventos por ubicación", e);
         }
         return listaEventos;
     }
@@ -138,6 +162,32 @@ public class EventoDAO {
         if (valoracionIndex != -1) { evento.setValoracion(cursor.getDouble(valoracionIndex)); }
 
         return evento;
+    }
+
+    @SuppressLint("Range")
+    public List<Evento> buscarEventosPorValoracion(int cantidad) {
+        List<Evento> listaEventos = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query("evento",
+                new String[]{"id", "nombre", "descripcion", "tipo", "horario", "ubicacion", "imagen", "valoracion"},
+                null, null, null, null, "valoracion DESC", String.valueOf(cantidad));
+        if (cursor.moveToFirst()) {
+            do {
+                Evento evento = new Evento();
+                evento.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                evento.setNombre(cursor.getString(cursor.getColumnIndex("nombre")));
+                evento.setDescripcion(cursor.getString(cursor.getColumnIndex("descripcion")));
+                evento.setTipo(cursor.getString(cursor.getColumnIndex("tipo")));
+                evento.setHorario(cursor.getString(cursor.getColumnIndex("horario")));
+                evento.setUbicacion(cursor.getString(cursor.getColumnIndex("ubicacion")));
+                evento.setImagen(cursor.getString(cursor.getColumnIndex("imagen")));
+                evento.setValoracion(cursor.getDouble(cursor.getColumnIndex("valoracion")));
+                listaEventos.add(evento);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return listaEventos;
     }
 
 }

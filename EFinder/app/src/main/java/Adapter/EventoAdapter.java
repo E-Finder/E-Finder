@@ -40,7 +40,6 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
         Evento evento = eventos.get(position);
         holder.nombreTextView.setText(evento.getNombre());
         holder.descripcionTextView.setText(evento.getDescripcion());
-        // Utiliza el contexto almacenado en lugar de obtenerlo de nuevo
         cargarImagenDesdeRuta(holder.imageButton, evento.getImagen());
 
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
