@@ -6,4 +6,6 @@
     <color name="ef_secondary">#1c5052</color>
     <color name="teal_200">#80CBC4</color>
     <color name="teal_700">#00796B</color>
+    <color name="azul">#0000FF</color>
+    <color name="azul_oscuro">#00008B</color>
 </resources>

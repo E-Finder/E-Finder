@@ -51,7 +51,7 @@ public class ResultadoActividadActivity extends ToolbarActivity {
         eventos = obtenerEventos(query);
 
         // Configurar el RecyclerView
-        adapter = new EventoAdapter(eventos);
+        adapter = new EventoAdapter(this, eventos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }

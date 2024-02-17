@@ -57,24 +57,26 @@ public class SettingsActivity extends ToolbarActivity {
         buttonVIP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(SettingsActivity.this, VIPActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SettingsActivity.this, TemaActivity.class);
+                startActivity(intent);
             }
         });
 
         buttonNotificaciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(SettingsActivity.this, NotificacionesActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(SettingsActivity.this, NotificacionesActivity.class);
+                startActivity(intent);
             }
         });
 
-        buttonCerrarSesion.setOnClickListener(new View.OnClickListener() {
+        Button button2 = findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(SettingsActivity.this, CerrarSesionActivity.class);
-                //startActivity(intent);
+                // Código para ir a la nueva actividad
+                Intent intent = new Intent(SettingsActivity.this, HomeActivity.class);
+                startActivity(intent);
             }
         });
     }
