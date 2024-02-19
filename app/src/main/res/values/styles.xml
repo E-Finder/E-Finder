@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/azul</item>
+        <item name="colorPrimaryDark">@color/azul_oscuro</item>
+        <item name="colorAccent">@color/casi_black</item>
+
+        <!-- Estilo para los menús emergentes del Toolbar -->
+        <item name="popupMenuStyle">@style/PopupMenu</item>
+    </style>
+
+    <!-- Estilo para los menús emergentes del Toolbar -->
+    <style name="PopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/azul</item>
+        <!-- Otros ajustes visuales para los menús emergentes -->
+    </style>
+</resources>
